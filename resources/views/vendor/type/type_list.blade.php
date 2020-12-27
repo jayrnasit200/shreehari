@@ -37,7 +37,8 @@
                                 <td>{{$no++}}</td>
                                 <td>{{$value->name}}</td>
                                 <td><a href="{{url('product/type/edit',$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{url('product/type/delete',$value->id)}}" class="btn btn-sm btn-danger text-white">Delete</a></td>
+                                    <a href="{{url('product/type/delete',$value->id)}}" class="btn btn-sm btn-danger text-white">Delete</a>
+                                    <a href="{{url('product/type/sub_type',$value->id)}}" class="btn btn-sm btn-secondary text-white">Sub Type</a></td>
                             </tr>
                           @endforeach
                         </tbody>

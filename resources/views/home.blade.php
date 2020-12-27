@@ -2,25 +2,25 @@
 
 @section('content')
 <!-- slider start -->
-        <div id="home-area" class="height-100vh bg-img watch-slider" style="background-image:  url('front_assets/assets/img/slider/10.jpg') ">
+        <div id="home-area" class="height-100vh bg-img watch-slider" style="background-image:  url({{ url('front_assets/new_assets/slider/253.png') }}) ">
             <div class="table">
                 <div class="table-cell">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 align-items-center">
                                 <div class="slider-text">
-                                    <h2 class="tlt1">Most <br>intelligent <br>& Smart Watch.</h2>
+                                    <!-- <h2 class="tlt1">Most <br>intelligent <br>& Smart Watch.</h2> -->
                                     <div class="button-set">
-                                        <a class="explore-btn video-popup" href="https://www.youtube.com/watch?v=K4wEI5zhHB0">
+                                     <!--    <a class="explore-btn video-popup" href="https://www.youtube.com/watch?v=K4wEI5zhHB0">
                                             Explore More <i class="ti-control-play"></i>
-                                        </a>
+                                        </a> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="wacth-img tilter">
-                                    <img src="{{ url('front_assets/assets/img/slider/1.png') }}" alt="" >
-                                </div>
+	                                <!-- <div class="wacth-img tilter">
+	                                    <img src="{{ url('front_assets/assets/img/slider/1.png') }}" alt="" >
+	                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -31,16 +31,23 @@
         <div id="about-area" class="watch-about-area bg-img ptb-150" style="background-image: url({{ url('front_assets/assets/img/bg/8.jpg') }})">
             <div class="container">
                 <div class="watch-about-content text-center">
-                    <img class="tilter" src="{{ url('front_assets/assets/img/banner/4.png') }}" alt="" >
-                    <h2>About Smart WT002</h2>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece.</p>
-                    <a href="about-us.html" target="_blank">Read More</a>
+                    <img class="tilter" src="{{ url('front_assets/new_assets/i-phone.jpg') }}" alt="" style="max-height: 100vh;">
+                    <h2>iPhone 12</h2>
+                    <h4>A joy to behold. And hold.</h4>
+                    <!-- <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece.</p> -->
+                    <a href="about-us.html" target="_blank">Buy iPhone 12</a>
                 </div>
             </div>
         </div>
         <!-- overview area start -->
-        <div class="overview-area bg-img pt-140 pb-70 mb-145" style="background-image: url({{ url('front_assets/assets/img/bg/9.jpg') }})">
-            <div class="container">
+        <div class="overview-area bg-img pt-140 pb-70 mb-145" style="background-image: url({{ url('front_assets/new_assets/phone.jpg') }}) ;   background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;">
+
+            <!-- <div class="container">
                 <div class="row">
                     <div class="ml-auto col-lg-6">
                         <div class="section-title-8 peragraph-width mb-45">
@@ -75,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- features area start -->
         <div class="power-feathers-area">
@@ -139,41 +146,41 @@
                 </div>
                 <div class="smart-watch-product-active owl-carousel">
                     <div class="smart-watch-product-wrapper">
-                        <a href="#"><img src="{{ url('front_assets/assets/img/product/smart-watch/1.jpg') }}" alt=""></a>
-                        <div class="smart-watch-content">
+                        <a href="#"><img src="{{ url('front_assets/new_assets/22.jpg') }}" alt=""></a>
+                        <!-- <div class="smart-watch-content">
                             <h4><a href="#"> Smart Watch D400x</a></h4>
                             <a href="#">Add To Cart</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="smart-watch-product-wrapper">
-                        <a href="#"><img src="{{ url('front_assets/assets/img/product/smart-watch/2.jpg') }}" alt=""></a>
-                        <div class="smart-watch-content">
+                        <a href="#"><img src="{{ url('front_assets/new_assets/iphne2.jpg') }}" alt=""></a>
+                       <!--  <div class="smart-watch-content">
                             <h4><a href="#">nice Watch D200x</a></h4>
                             <a href="#">Add To Cart</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="smart-watch-product-wrapper">
-                        <a href="#"><img src="{{ url('front_assets/assets/img/product/smart-watch/3.jpg') }}" alt=""></a>
-                        <div class="smart-watch-content">
+                        <a href="#"><img src="{{ url('front_assets/new_assets/44.jpg') }}" alt=""></a>
+                       <!--  <div class="smart-watch-content">
                             <h4><a href="#">awesome Watch D400x</a></h4>
                             <a href="#">Add To Cart</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="smart-watch-product-wrapper">
-                        <a href="#"><img src="{{ url('front_assets/assets/img/product/smart-watch/1.jpg') }}" alt=""></a>
-                        <div class="smart-watch-content">
+                        <a href="#"><img src="{{ url('front_assets/new_assets/11.jpg') }}" alt=""></a>
+                        <!-- <div class="smart-watch-content">
                             <h4><a href="#">Drubo Smart Watch D200x</a></h4>
                             <a href="#">Add To Cart</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
         <!-- video area start -->
-        <div id="video-area" class="video-area bg-img pt-140 pb-135" style="background-image: url({{ url('front_assets/assets/img/bg/10.jpg') }})">
+        <div id="video-area" class="video-area bg-img pt-140 pb-135" style="background-image: url({{ url('front_assets/new_assets/slider/apple_phone.png') }})">
             <div class="container">
                 <div class="row">
-                    <div class="ml-auto col-lg-6">
+                    <div class="ml-auto0 col-lg-6">
                         <div class="watch-video-content">
                             <h2>Explore <br>Every part of this <br>Watch.</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -223,7 +230,7 @@
                     <div class="col-lg-4 col-md-12 text-center">
                         <div class="feature-top">
                             <div class="feature-img">
-                                <img src="{{ url('front_assets/assets/img/banner/6.png') }}" alt="" >
+                                <img src="{{ url('front_assets/new_assets/25512.jpg') }}" style="max-width: 50vh;" alt="" >
                             </div>
                         </div>
                     </div>

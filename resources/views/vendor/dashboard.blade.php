@@ -4,8 +4,15 @@
     @include('title.heading')
     <section class="content">
       <div class="container-fluid">
-
-
+      	 @if(!auth()->user()->phone) 
+      	<div class="alert alert-danger" role="alert">
+      		<h1>Warning</h1>
+			  Profile Compulsory Required.
+			  <div class="text-right">
+			  	<a href="{{ url('vendor/profile') }}" class="btn btn-warning">Profile view </a>
+			  </div>
+			</div>
+		@endif
         <div class="row">
           <div class="col-lg-3 col-6">
             <div class="small-box bg-info">

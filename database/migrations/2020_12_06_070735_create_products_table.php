@@ -23,9 +23,9 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->text('image');
             $table->string('price');
-            $table->string('discount');
-            $table->string('discount_price');
-            $table->string('sell_price');
+            $table->string('discount')->nullable();
+            // $table->string('discount_price');
+            // $table->string('sell_price');
             $table->integer('type_id');
             $table->integer('sub_types')->nullable();
             $table->enum('status', ['enable', 'disable'])->default('enable');

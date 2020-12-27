@@ -45,4 +45,10 @@ class VendorController extends Controller
          return redirect('/login')->with('msg_e', 'Your Account has been created successfully.');
 
     }
+
+    function profile()
+    {
+        $data['titel']='Profile';
+        return view('vendor.vendor_profile_create')->with($data);
+    }
 }

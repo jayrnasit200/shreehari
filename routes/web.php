@@ -29,6 +29,7 @@ Route::post('/vendor/register', [App\Http\Controllers\vendor\VendorController::c
 
 
 Route::middleware('vendor')->group(function () {
+Route::get('/vendor/profile', [App\Http\Controllers\vendor\VendorController::class, 'profile']);
 
 Route::get('vendor', [App\Http\Controllers\HomeController::class, 'vendor'])->name('vendor');
 Route::get('/product/type/list', [App\Http\Controllers\vendor\type\TypeController::class, 'index']);
@@ -38,7 +39,16 @@ Route::get('/product/type/delete/{id}', [App\Http\Controllers\vendor\type\TypeCo
 Route::get('/product/type/edit/{id}', [App\Http\Controllers\vendor\type\TypeController::class, 'edit']);
 Route::post('/product/type/update', [App\Http\Controllers\vendor\type\TypeController::class, 'update']);
 
-Route::get('/product', [App\Http\Controllers\vendor\CategoryController::class, 'index']);
+Route::get('/product/type/sub_type/{id}', [App\Http\Controllers\vendor\SubTypeController::class, 'index']);
+Route::get('/product/type/sub_type/create/{id}', [App\Http\Controllers\vendor\SubTypeController::class, 'create']);
+Route::post('/product/type/sub_type/add', [App\Http\Controllers\vendor\SubTypeController::class, 'add']);
+Route::get('/product/type/sub_type_list/delete/{id}', [App\Http\Controllers\vendor\SubTypeController::class, 'delete']);
+Route::get('/product/type/sub_type_list/edit/{id}', [App\Http\Controllers\vendor\SubTypeController::class, 'edit']);
+Route::post('/product/type/sub_type/update', [App\Http\Controllers\vendor\SubTypeController::class, 'update']);
+
+Route::get('/product', [App\Http\Controllers\vendor\ProductController::class, 'index']);
+Route::get('/product/create', [App\Http\Controllers\vendor\ProductController::class, 'create']);
+Route::post('/product/add', [App\Http\Controllers\vendor\ProductController::class, 'add']);
 
 
 });
