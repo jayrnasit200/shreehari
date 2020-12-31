@@ -16,14 +16,18 @@
                 <form method="post" action="{{ url('product/type/sub_type/add') }}">@csrf
                     <div class="card-body">
 
-                        
+                           <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                                </div>
+                             @error('name')<span class="text-danger">{{ $message }}</span>@enderror
+
                          <div class="form-group">
                                 
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" name="coler_type" id="customSwitch1">
                                     <label class="custom-control-label" for="customSwitch1">Coler Available</label>
                                 </div>
-                             @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
 
                         <div class="form-group">
@@ -40,7 +44,6 @@
                                     <input type="checkbox" class="custom-control-input" name="size_available" id="customSwitch2">
                                     <label class="custom-control-label" for="customSwitch2">Size Available</label>
                                 </div>
-                             @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
 
                         <div class="form-group">

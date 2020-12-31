@@ -37,7 +37,6 @@ class HomeController extends Controller
     }
     public function admin()
     {
-        // echo "admin";
         $data['titel']='Dashboard Admin';
         return view('admin.dashboard')->with($data);
     }

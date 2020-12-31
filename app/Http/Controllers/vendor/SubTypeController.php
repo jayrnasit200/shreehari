@@ -30,6 +30,7 @@ class SubTypeController extends Controller
    	// print_r(request()->all());
    	// exit();
    	$this->validate(request(), [
+            "name" => "required",
             "color" => "required_if:coler_type,==,on",
             "size" => "required_if:size_available,==,on",
             'size_type' => "required_if:size_available,==,on",
@@ -43,7 +44,8 @@ class SubTypeController extends Controller
    			'user_id'=>auth()->user()->id,
    			'type_id' => $type_id,
    			'color' => $color,
-   			'size' => request()->size,
+            'size' => request()->size,
+   			'name' => request()->name,
    			'size_type' => request()->size_type,
    			]);
 

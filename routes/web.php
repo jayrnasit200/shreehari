@@ -46,15 +46,20 @@ Route::get('/product/type/sub_type_list/delete/{id}', [App\Http\Controllers\vend
 Route::get('/product/type/sub_type_list/edit/{id}', [App\Http\Controllers\vendor\SubTypeController::class, 'edit']);
 Route::post('/product/type/sub_type/update', [App\Http\Controllers\vendor\SubTypeController::class, 'update']);
 
-Route::get('/product', [App\Http\Controllers\vendor\ProductController::class, 'index']);
+Route::get('/product/list', [App\Http\Controllers\vendor\ProductController::class, 'index']);
 Route::get('/product/create', [App\Http\Controllers\vendor\ProductController::class, 'create']);
 Route::post('/product/add', [App\Http\Controllers\vendor\ProductController::class, 'add']);
-
+Route::get('/subcategories/{id}', [App\Http\Controllers\vendor\ProductController::class, 'subcategories']);
+Route::get('/sub_types/{id}', [App\Http\Controllers\vendor\ProductController::class, 'sub_types']);
+Route::get('/product_data', [App\Http\Controllers\vendor\ProductController::class, 'product_data'])->name('product_data');
 
 });
 
-Route::middleware('Admin')->group(function () {
+// Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('Admin');
 
-Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+// Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('Admin');
+
+Route::group(['middleware' => ['auth','Admin'],'prefix' => 'admin'], function() {
+Route::get('test', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 
 });

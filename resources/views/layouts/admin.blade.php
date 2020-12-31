@@ -31,6 +31,10 @@
   <link rel="stylesheet" href="{{ url('admin_assets/plugins/summernote/summernote-bs4.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url('admin_assets/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ url('admin_assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+
    @yield('css')
 
 </head>
@@ -197,19 +201,19 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview ">
-            <a href="{{url('admin')}}" class="nav-link ">
+            <a href="{{ url('vendor') }}" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
+                <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
         
           </li>
 
-          <!-- <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">
+          <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ (request()->segment(1) == 'product') ? 'active' : '' }} ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-box"></i>
               <p>
                 Product 
                 <i class="right fas fa-angle-left"></i>
@@ -217,27 +221,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/product/type/list') }}" class="nav-link {{ (request()->segment(1) == 'type') ? 'active' : '' }}">
+                <a href="{{ url('/') }}" class="nav-link {{ (request()->segment(2) == 'type') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Type</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ url('category/add') }}" class="nav-link {{ (request()->segment(1) == 'category' && request()->segment(2) == 'add') ? 'active' : '' }}">
+                <a href="{{ url('/') }}" class="nav-link {{ (request()->segment(1) == 'product' && request()->segment(2) == 'list') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>category Add</p>
+                  <p>Product</p>
                 </a>
               </li>
 
-              <li class="nav-item">
+             <!--  <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
-          </li> -->
+          </li>
          
        
           
@@ -303,7 +307,29 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('admin_assets/dist/js/demo.js') }}"></script>
 <script src="{{ url('admin_assets/custom.js') }}"></script>
+
+<script src="{{ url('admin_assets/plugins/select2/js/select2.full.min.js') }}"></script>
   @yield('js')
+
+<script type="text/javascript">
+    setTimeout(function () {
+        $("#msg").fadeOut(3000);
+    }, 5000); // <-- time in milliseconds
+
+    // In your Javascript (external .js resource or <script> tag)
+
+</script>
+
+<script>
+    // $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Initialize Select2 Elements
+        $(".select2bs4").select2({
+            theme: "bootstrap4",
+        });
+</script>
    <div class="modal fade" id="confirm_model" role="dialog"></div>
 
 </body>

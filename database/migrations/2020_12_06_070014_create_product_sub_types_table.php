@@ -17,6 +17,7 @@ class CreateProductSubTypesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('type_id');
+            $table->string('name');
             $table->string('color')->nullable();
             $table->string('size')->nullable();
             $table->string('size_type')->nullable();

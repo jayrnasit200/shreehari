@@ -7,10 +7,9 @@
 
 <section class="content">
     <div >
-      <form method="post" enctype="multipart/form-data">@csrf
-        <div class=" print-error-msg" id="msg" style="display:none">
-                   <ul style="top: 70px; position: absolute;right: 0;z-index: 1;"></ul>
-               </div>
+      <form method="post" enctype="multipart/form-data"  action="{{ url('product/add') }}">
+        {{ csrf_field() }}
+               
         <div class="col-md-12">
             <div class="card card-default">
                 <div class="card-header">
@@ -53,57 +52,42 @@
 
                                 <div class="form-group">
                                     <label>categories</label>
-                                    <select name="categories" class="form-control select2" style="width: 100%;" aria-hidden="true">
+                                    <select name="categories" id="categories" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
-                                        <option >Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        @foreach ($categories as  $value)
+                                          <option value="{{$value->id}}" >{{$value->name}}</option>
+                                        @endforeach
                                       </select>
                                      @error('categories')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                  <div class="form-group">
                                     <label>subcategories</label>
-                                    <select name="subcategories" class="form-control select2" style="width: 100%;" aria-hidden="true">
+                                    <select name="subcategories" id="subcategories" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        <!-- <option>Alaska</option> -->
+                                        
                                       </select>
                                      @error('subcategories')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label>type</label>
-                                    <select name="type" class="form-control select2" style="width: 100%;" aria-hidden="true">
+                                    <select name="type" id="types" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                         @foreach ($types as  $value)
+                                          <option value="{{$value->id}}" >{{$value->name}}</option>
+                                        @endforeach
                                       </select>
                                      @error('type')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                  <div class="form-group">
                                     <label>sub_types</label>
-                                    <select name="sub_types" class="form-control select2" style="width: 100%;" aria-hidden="true">
+                                    <select name="sub_types" id="sub_sub_types" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        <!-- <option>Alaska</option> -->
+                                        
                                       </select>
                                      @error('sub_types')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
@@ -144,7 +128,7 @@
 
                                  <div class="form-group">
                                     <label>discount</label>
-                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter discount" value="{{ old('price') }}">
+                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter discount" value="{{ old('discount') }}">
                                      @error('discount')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
@@ -186,7 +170,7 @@
                     </div>
                     <div class="card-footer con">
                         <a href="{{ url('product/type/list') }}" class="btn btn-default">Cancel</a>
-                        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 
 
@@ -234,83 +218,82 @@
     }
 </script>
 
+  <script>
 
-<script type="text/javascript">
+      var   categories_id = $("#categories").val();
+      categories( categories_id);
 
-    $(document).ready(function() {
-        $(".btn-submit").click(function(e){
-            e.preventDefault();
+      $("#categories").on('change',function(){
+        var   categories_id = $(this).val();
+        categories( categories_id);
+      });
 
-            var _token = $("input[name='_token']").val();
-            var name = $("input[name='name']").val();
-            var categories = $("select[name='categories']").val();
-            var subcategories = $("select[name='subcategories']").val();
-            var type = $("select[name='type']").val();
-            var sub_types = $("select[name='sub_types']").val();
-            var short_dicaripsan = $("input[name='short_dicaripsan']").val();
-            var dicaripsan = $("textarea[name='dicaripsan']").val();
-            var price = $("input[name='price']").val();
-            var image = $("input[name='image']").val();
+      function categories(  categories_id){
+        if( categories_id != ""){
+          $.ajax({
+            url: "{!! url('/subcategories') !!}/"+ categories_id,
+            method:"get",
+            dataType:"json",
+            success: function(result){
+              html = "";
+              html += '<option value="">--select--</option>';
+              $.each(result, function( index, value ) {
 
-            $.ajax({
-                url: "{{ url('/product/add') }}",
-                type:'POST',
-                data: {
-                  _token:_token,
-                   name:name,
-                    categories:categories,
-                     subcategories:subcategories,
-                      type:type,
-                      sub_types:sub_types,
-                      short_dicaripsan:short_dicaripsan,
-                      dicaripsan:dicaripsan,
-                      price:price,
-                      image:image
-                    },
-                success: function(data) {
-                    if($.isEmptyObject(data.error)){
-                        // alert(data.success);
-                      // console.log(data);
+                sel = "";
+                @if (old('subcategories')) 
+                  old = "{{ old('subcategories') }}" 
+                  if(old == value.id){
+                    sel = "selected";
+                  }
+                @endif
 
-                         printsuccessMsg(data.success);
-                    }else{
-                        printErrorMsg(data.error);
-                            console.log(data);
-
-                    }
-                }
-            });
-
-        }); 
-
-         function printsuccessMsg (msg) {
-
-            $(".print-error-msg").find("ul").html('');
-            $(".print-error-msg").css('display','block');
-            $(".print-error-msg").find("ul").append('<li class="alert alert-success">'+msg+'</li>');
-            // $.each( msg, function( key, value ) {
-            //     $(".print-error-msg").find("ul").append('<li class="alert alert-success">'+value+'</li>');
-            // });
-            $(document).ready(function () {
-            // setTimeout(function () {
-            //   // alert('Reloading Page');
-            //   location.reload(true);
-            // }, 1000);
+                html += '<option value="'+value.id+'" '+sel+'>'+value.name+'</option>';
+              });
+              $("#subcategories").html(html);
+            }
           });
         }
+      }
+    </script>
 
-        function printErrorMsg (msg) {
-          console.log(msg);
-            $(".print-error-msg").find("ul").html('');
-            $(".print-error-msg").css('display','block');
-            $.each( msg, function( key, value ) {
-                $(".print-error-msg").find("ul").append('<li class="alert alert-danger">'+value+'</li>');
-            });
+
+     <script>
+
+      var   sub_types_id = $("#types").val();
+      sub_sub_types( sub_types_id);
+
+      $("#types").on('change',function(){
+        var   sub_types_id = $(this).val();
+        sub_sub_types( sub_types_id);
+      });
+
+      function sub_sub_types(  sub_types_id){
+        if( sub_types_id != ""){
+          $.ajax({
+            url: "{!! url('/sub_types') !!}/"+ sub_types_id,
+            method:"get",
+            dataType:"json",
+            success: function(result){
+              html = "";
+              html += '<option value="">--select--</option>';
+              $.each(result, function( index, value ) {
+                // console.log(value);
+
+                sel = "";
+                @if (old('sub_sub_types')) 
+                  old = "{{ old('sub_sub_types') }}" 
+                  if(old == value.id){
+                    sel = "selected";
+                  }
+                @endif
+
+                html += '<option value="'+value.id+'" '+sel+'>'+value.name+'</option>';
+              });
+              $("#sub_sub_types").html(html);
+            }
+          });
         }
-    });
-
-
-
-</script>
+      }
+    </script>
 
 @endsection
