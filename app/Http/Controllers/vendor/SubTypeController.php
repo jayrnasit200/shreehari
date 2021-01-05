@@ -10,7 +10,7 @@ class SubTypeController extends Controller
 {
    public function index($id)
    {
-   		$data['subtype']=DB::table('product_sub_types')->where('type_id',$id)->get();
+   	$data['subtype']=DB::table('product_sub_types')->where('type_id',$id)->get();
 		$data['id']=$id;
 		$data['titel']='Sub Type List';
 		// print_r($id);

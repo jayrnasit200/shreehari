@@ -31,7 +31,7 @@ class CreateProductsTable extends Migration
             $table->enum('status', ['enable', 'disable'])->default('enable');
             $table->integer('vedor_id');
             $table->enum('verify', ['Yes', 'No'])->default('No');
-
+            $table->text('attributes')->nullable();
             $table->foreign('vedor_id')->references('id')->on('users');
             $table->foreign('categories_id')->references('id')->on('Categories');
             $table->foreign('subcategories_id')->references('id')->on('subcategories');

@@ -7,7 +7,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -34,7 +35,7 @@
 
   <link rel="stylesheet" href="{{ url('admin_assets/plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin_assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
    @yield('css')
 
 </head>
@@ -180,7 +181,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{ url('admin_assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">{{ sys_config('site_name') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -191,7 +192,7 @@
           <img src="{{ url('admin_assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -201,7 +202,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview ">
-            <a href="{{ url('vendor') }}" class="nav-link ">
+            <a href="{{ url('admin') }}" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -210,12 +211,67 @@
             </a>
         
           </li>
+          <li class="nav-item has-treeview {{ (request()->segment(2) == 'categories') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->segment(2) == 'categories') ? 'active' : '' }} ">
+              <!-- <i class="nav-icon fas fa-box"></i> -->
+              <i class="far fa-list-alt"></i>
+              <p>
+                Categories 
+                <i class="right fas fa-angle-left"></i>
 
-          <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (request()->segment(1) == 'product') ? 'active' : '' }} ">
+
+              </p>
+            </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url(admin().'categories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == '') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Categories</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{ url(admin().'categories/subcategories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == 'subcategories') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Subcategories</p>
+                    </a>
+                  </li>
+
+                </ul>
+          </li>
+
+            <li class="nav-item has-treeview {{ (request()->segment(2) == 'product') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-box"></i>
               <p>
                 Product 
+                <i class="right fas fa-angle-left"></i>
+
+              </p>
+            </a>
+              <!-- <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url(admin().'categories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == '') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Categories</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{ url(admin().'categories/subcategories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == 'subcategories') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Subcategories</p>
+                    </a>
+                  </li>
+
+                </ul> -->
+          </li>
+
+<!--           <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->segment(1) == 'product') ? 'active' : '' }} ">
+              <i class="nav-icon fas fa-box"></i>
+              <p>
+                categories 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -234,14 +290,14 @@
                 </a>
               </li>
 
-             <!--  <li class="nav-item">
+              <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
                 </a>
-              </li> -->
+              </li>
             </ul>
-          </li>
+          </li> -->
          
        
           
@@ -256,13 +312,7 @@
    
             @yield('content')
       </div></div>
- <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.0-rc.5
-    </div>
-  </footer>
+ <footer class="main-footer"> {{ sys_config('copyright_text') }}</footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

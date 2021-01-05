@@ -15,19 +15,19 @@
             </div>
         <div class="container">
   @if(session()->get('msg_s'))
-         <div class="alert alert-success alert-dismissible">
+         <div class="alert alert-success alert-dismissible" id="msg">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   {{ session()->get('msg_s') }} 
             </div>
-        </div>
-        </section>
+        <!-- </div> -->
+        <!-- </section> -->
   @endif
 
   @if(session()->get('msg_e'))
-         <div class="alert alert-danger alert-dismissible">
+         <div class="alert alert-danger alert-dismissible" id="msg">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   {{ session()->get('msg_e') }} 
             </div>
-        </div>
-        </section>
   @endif
+        </div>
+</section>

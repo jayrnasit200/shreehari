@@ -35,8 +35,7 @@
 function confirmDelete(id, item_name, action)
 {
 	var csrf = $('meta[name="csrf-token"]').attr('content');
-
-	// console.log(id);
+	
 	// console.log(item_name);
 	// return false;
 	var html  = '<div class="modal-dialog">'+
@@ -73,3 +72,7 @@ function delete_items(frm,id){
 	$("#action").val("delete");
 	$("#"+frm).submit();
 }
+
+    setTimeout(function () {
+        $("#msg").fadeOut("fast");
+    }, 5000); // <-- time in milliseconds

@@ -19,7 +19,7 @@ class CreateSubcategoriesTable extends Migration
             $table->integer('categories_id');
             $table->string('name');
             $table->text('image')->nullable();
-            // $table->timestamps();
+            $table->timestamps();
             
 
             $table->foreign('categories_id')->references('id')->on('Categories');
