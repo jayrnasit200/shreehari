@@ -26,8 +26,8 @@ class CreateProductsTable extends Migration
             $table->string('discount')->nullable();
             // $table->string('discount_price');
             // $table->string('sell_price');
-            $table->integer('type_id');
-            $table->integer('sub_types')->nullable();
+            // $table->integer('type_id');
+            // $table->integer('sub_types')->nullable();
             $table->enum('status', ['enable', 'disable'])->default('enable');
             $table->integer('vedor_id');
             $table->enum('verify', ['Yes', 'No'])->default('No');
@@ -35,8 +35,8 @@ class CreateProductsTable extends Migration
             $table->foreign('vedor_id')->references('id')->on('users');
             $table->foreign('categories_id')->references('id')->on('Categories');
             $table->foreign('subcategories_id')->references('id')->on('subcategories');
-            $table->foreign('type_id')->references('id')->on('product_types');
-            $table->foreign('sub_types')->references('id')->on('product_sub_types');
+            // $table->foreign('type_id')->references('id')->on('product_types');
+            // $table->foreign('sub_types')->references('id')->on('product_sub_types');
 
             $table->timestamps();
         });

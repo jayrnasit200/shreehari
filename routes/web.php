@@ -103,5 +103,13 @@ Route::post('/categories/subcategories/delete', [App\Http\Controllers\Admin\Subc
 Route::get('/categories/subcategories/edit/{id}', [App\Http\Controllers\Admin\SubcategoriesController::class, 'edit']);
 Route::post('/categories/subcategories/update', [App\Http\Controllers\Admin\SubcategoriesController::class, 'update']);
 
+Route::get('/product', [App\Http\Controllers\Admin\ProductsController::class, 'index']);
+Route::get('/all_product', [App\Http\Controllers\Admin\ProductsController::class, 'all_product'])->name('all_product');
+Route::get('/product/subcategories/{id}', [App\Http\Controllers\Admin\ProductsController::class, 'subcategories']);
+Route::get('/product/create', [App\Http\Controllers\Admin\ProductsController::class, 'create']);
+Route::post('/product/add', [App\Http\Controllers\Admin\ProductsController::class, 'add']);
+Route::post('/product/delete', [App\Http\Controllers\Admin\ProductsController::class, 'delete']);
+Route::get('/product/view/{id}', [App\Http\Controllers\Admin\ProductsController::class, 'view']);
+Route::get('/product/edit/{id}', [App\Http\Controllers\Admin\ProductsController::class, 'edit']);
 
 });

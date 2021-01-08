@@ -241,7 +241,7 @@
           </li>
 
             <li class="nav-item has-treeview {{ (request()->segment(2) == 'product') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }} ">
+            <a href="{{ url(admin().'product') }}" class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-box"></i>
               <p>
                 Product 
@@ -249,22 +249,22 @@
 
               </p>
             </a>
-              <!-- <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ url(admin().'categories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == '') ? 'active' : '' }}">
+                    <a href="{{ url(admin().'product') }}" class="nav-link {{ (request()->segment(2) == 'product' && request()->segment(3) == '') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Categories</p>
+                      <p>Product</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
                     <a href="{{ url(admin().'categories/subcategories') }}" class="nav-link {{ (request()->segment(2) == 'categories' && request()->segment(3) == 'subcategories') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Subcategories</p>
+                      <p>Review</p>
                     </a>
                   </li>
 
-                </ul> -->
+                </ul>
           </li>
 
 <!--           <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">

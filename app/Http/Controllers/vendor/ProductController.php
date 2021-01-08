@@ -99,7 +99,7 @@ class ProductController extends Controller
     }
     public function product_data()
     {
-        $data = DB::table('products')->get();
+        $data = DB::table('products')->where('vedor_id',auth()->user()->id)->get();
         // print_r($data);
         // exit();
         return datatables($data)
