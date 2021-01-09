@@ -111,5 +111,9 @@ Route::post('/product/add', [App\Http\Controllers\Admin\ProductsController::clas
 Route::post('/product/delete', [App\Http\Controllers\Admin\ProductsController::class, 'delete']);
 Route::get('/product/view/{id}', [App\Http\Controllers\Admin\ProductsController::class, 'view']);
 Route::get('/product/edit/{id}', [App\Http\Controllers\Admin\ProductsController::class, 'edit']);
+Route::post('/product/update', [App\Http\Controllers\Admin\ProductsController::class, 'update']);
+Route::post('/product/img/delete', [App\Http\Controllers\Admin\ProductsController::class, 'img_delete']);
+Route::post('/product/img/add', [App\Http\Controllers\Admin\ProductsController::class, 'img_add']);
+
 
 });

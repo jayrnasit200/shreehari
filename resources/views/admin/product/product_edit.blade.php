@@ -1,4 +1,4 @@
-@extends('layouts.vendor')
+@extends('layouts.admin')
  @section('css')
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 @endsection
@@ -7,7 +7,7 @@
 
 <section class="content">
     <div >
-      <form method="post" enctype="multipart/form-data"  action="{{ url(admin().'product/add') }}">
+      <form method="post" enctype="multipart/form-data"  action="{{ url(admin().'product/update') }}">
         {{ csrf_field() }}
                
         <div class="col-md-12">
@@ -130,30 +130,49 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Images</label>
-                                    <img class="profile-img img-fluid float-right" id="preview" height="150" width="150" />
+                                    <img src="{{ url($products->image) }}" class="profile-img img-fluid float-right" id="preview" height="150" width="150" />
                                     <div>
+                                    <input type="hidden" name="old_image" id="file" value="{{ $products->image }}" />
                                     <input type="File" name="image" id="file" onchange="previewImage();" class="" />
                                      @error('image')<span class="text-danger">{{ $message }}</span>@enderror
                                    </div>
                                 </div>
 
-                                
-                                  <div class="form-group">
-                                    <label>More Images</label>
-                                   <div>
+                       </form>
+                       <div class="mb-5 mr-3 p-5 w-75 border border-dark">
+                       <form method="post" action="{{ url(admin().'product/img/add') }}" enctype="multipart/form-data">@csrf
+                                  <div class="form-group"><label>More Images</label><div>
+                                    <input type="hidden" name="id" value="{{ $products->id }}">
                                     <input type="File"  id="images" name="all_img[]" onchange="preview_images();" multiple class="" />
                                      @error('all_img')<span class="text-danger">{{ $message }}</span>@enderror
                                    </div>
+                                   <input type="submit" name="submit" class="btn btn-primary float-right">
                                     <div class="row" id="image_preview"></div>
                                 </div>
-                             
+                              </form>
+                            </div>
+                                <form method="post" action="{{ url(admin().'product/img/delete') }}">@csrf
+                                <table class="table">
+                                  <tr>
+                                    <th><div class="container"><input type="submit" name="submit" value="Delete" class="btn btn-danger"></th>
+                                    <th>Images</th>
+                                  </tr>
+                                  @foreach($productsImages as $img)
+                                  <tr>
+                                    <td><input type="checkbox" name="delete[]" value="{{$img->id}}"></td>
+                                    <td><img src="{{ url($img->image) }}" width="70"></td>
+                                  </tr>
+                                  @endforeach
+                                </table>
+                              
+                          </form>
                             </div>
                         </div>
                      </div> 
                   </div>
                 </div>
           
-                  
+                  <input type="hidden" name="id" value="{{ $products->id }}">
                     </div>
                     <div class="card-footer con">
                         <a href="{{ url('product/type/list') }}" class="btn btn-default">Cancel</a>
@@ -164,7 +183,6 @@
                 <!-- <div class="card-footer">Visit for more examples and information about the plugin.</div> -->
             </div>
         </div>
-      </form>
     </div>
 </section>
 @php
@@ -229,8 +247,8 @@ $categories=$products->categories_id;
               $.each(result, function( index, value ) {
 
                 sel = "";
-                @if (old('subcategories')) 
-                  old = "{{ old('subcategories') }}" 
+                @if (old('subcategories',$products->subcategories_id)) 
+                  old = "{{ old('subcategories',$products->subcategories_id) }}" 
                   if(old == value.id){
                     sel = "selected";
                   }

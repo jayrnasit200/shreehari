@@ -1,4 +1,4 @@
-@extends('layouts.vendor')
+@extends('layouts.admin')
  @section('css')
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 @endsection

@@ -25,9 +25,9 @@
                     <table id="example" class="table  table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>ID</th>
                                 <th>Model Number</th>
+                                <th>Name</th>
                                 <th>image</th>
                                 <th>status</th>
                                 <th>Action</th>
@@ -75,6 +75,17 @@
                         "orderable": true,
                         "searchable": true
                     },
+                    //  {
+                    //     "name": "status",
+                    //     "data": "status",
+                    //     "render": function (data, type, full, meta) {
+                    //         return '<a '+data+ '>Disable </a>'   ;
+                    //     },
+                    //     "title": "status",
+                    //     "orderable": true,
+                    //     "searchable": true
+                    // },
+                    
                     { data: 'status', name: 'status' },
                     
                     { data: "action" }

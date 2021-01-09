@@ -24,11 +24,6 @@ class ProductsController extends Controller
         return datatables($data)
             ->addColumn('action', function ($row) {
                 $delete_action = url(admin() . "product/delete");
-                if ($row->status == 'Enable') {
-                    $status = '<a href="' . url('/banners/status_update') . '/' . $row->id . '" class="btn btn-sm btn-warning">Disable </a>';
-                } else {
-                    $status = '<a href="' . url('/banners/status_update') . '/' . $row->id . '" class="btn btn-sm btn-success">Enable </a>';
-                }
 
                 return ' <a href="'.url(admin().'product/edit') .'/' .$row->id . '" class="btn btn-primary"><i class="far fa-edit"></i></a>
                     <a href="' .url(admin() . 'product/view/') .'/' .$row->id .'" class="btn btn-dark"><i class="fas fa-eye"></i></a>
@@ -38,6 +33,15 @@ class ProductsController extends Controller
                 // $delete_action = url(Config::get('constant.ad_banner_dir'));
                 return url($row->image);
             })
+             ->addColumn('name', function ($row) {
+                // $delete_action = url(Config::get('constant.ad_banner_dir'));
+                return substr($row->name,0,15).'...';
+            })
+            //   ->addColumn('status', function ($row) {
+            //         $status = 'href="' . url('/banners/status_update') . '/' . $row->id . '">Disable ';
+                
+            //     return $status;
+            // })
             ->make();
     }
     public function create()
@@ -139,11 +143,69 @@ class ProductsController extends Controller
         $data['products'] = Products::where('id', $id)
             ->get()
             ->first();
-        $data['productsImages'] = ProductsImages::where('product_id', $id)
-            ->get()
-            ->all();
+        $data['productsImages'] = ProductsImages::where('product_id', $id) ->get()->all();
         $data['categories'] = Category::get()->all();
-            
+
         return view('admin.product.product_edit')->with($data);
+    }
+    public function update()
+    {
+      $this->validate(request(), [
+            'name' => 'required|string|max:255',
+            'categories' => 'required',
+            'subcategories' => 'required',
+            'short_dicaripsan' => 'required',
+            'price' => 'required',
+            'dicaripsan' => 'required',
+            'discount' => 'required|lte:price',
+        ]);
+        $img_name=request()->old_image;
+        if(request()->image){
+            $file = request()->file('image');
+
+            $imagename = time() . rand(1, 100) . '.' . $file->extension();
+            $banner_url = 'upload/product/';
+            $file->move($banner_url, $imagename);
+            $img_name=$banner_url. $imagename;
+          }
+        $product = Products::where('id',request()->id)->update([
+            // 'model_number' => $model_number,
+            'name' => request()->name,
+            'categories_id' => request()->categories,
+            'subcategories_id' => request()->subcategories,
+            'shot_description' => request()->short_dicaripsan,
+            'description' => request()->dicaripsan,
+            'image' => $img_name,
+            'price' => request()->price,
+            'discount' => request()->discount,
+           
+        ]);
+        
+        return redirect(admin() . 'product')->with('msg_s', 'product update successfully.');
+    }
+    public function img_delete()
+    {
+      foreach (request()->delete as $value ) {
+        $data=ProductsImages::where('id',$value)->get()->first();
+        $product_id=$data->product_id;
+        // print_r($product_id);
+        // exit();
+          @unlink($data->image);
+         ProductsImages::where('id', $data->id)->delete();
+      }
+        return redirect(url(admin() . 'product/edit',$product_id))->with('msg_s', 'image delete successfully.');
+    }
+    public function img_add()
+    {
+      $id=request()->id;
+      foreach (request()->all_img as $file) {
+            $imagename = time() . rand(1, 100) . '.' . $file->extension();
+            $banner_url = 'upload/product/';
+            $file->move($banner_url, $imagename);
+            $img_name=$banner_url. $imagename;
+            ProductsImages::create(['product_id'=>$id,'image'=>$banner_url. $imagename]);
+      }
+        return redirect(url(admin() . 'product/edit',$id))->with('msg_s', 'image add successfully.');
+
     }
 }
