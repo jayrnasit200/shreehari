@@ -20,7 +20,7 @@
                 </div>
                 <div class="card-body">
                     <div class="text-right m-2">
-                    <a href="{{ url('product/create') }}" class="btn btn-primary">Add </a>
+                    <a href="{{ url(vendor().'product/create') }}" class="btn btn-primary">Add </a>
                 </div>
                     <table id="example" class="table  table-striped">
                         <thead>

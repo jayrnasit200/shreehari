@@ -7,7 +7,7 @@
 
 <section class="content">
     <div >
-      <form method="post" enctype="multipart/form-data"  action="{{ url('product/add') }}">
+      <form method="post" enctype="multipart/form-data"  action="{{ url(vendor().'product/add') }}">
         {{ csrf_field() }}
                
         <div class="col-md-12">
@@ -71,26 +71,7 @@
                                      @error('subcategories')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <label>type</label>
-                                    <select name="type" id="types" class="form-control select2" style="width: 100%;" aria-hidden="true">
-                                        <option value=""> --select--</option>
-                                         @foreach ($types as  $value)
-                                          <option value="{{$value->id}}" >{{$value->name}}</option>
-                                        @endforeach
-                                      </select>
-                                     @error('type')<span class="text-danger">{{ $message }}</span>@enderror
-                                </div>
-
-                                 <div class="form-group">
-                                    <label>sub_types</label>
-                                    <select name="sub_types" id="sub_sub_types" class="form-control select2" style="width: 100%;" aria-hidden="true">
-                                        <option value=""> --select--</option>
-                                        <!-- <option>Alaska</option> -->
-                                        
-                                      </select>
-                                     @error('sub_types')<span class="text-danger">{{ $message }}</span>@enderror
-                                </div>
+                               
                              
                             </div>
                         </div>
@@ -169,7 +150,7 @@
                   
                     </div>
                     <div class="card-footer con">
-                        <a href="{{ url('product/type/list') }}" class="btn btn-default">Cancel</a>
+                        <a href="{{ url(vendor().'product/list') }}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 
@@ -231,7 +212,7 @@
       function categories(  categories_id){
         if( categories_id != ""){
           $.ajax({
-            url: "{!! url('/subcategories') !!}/"+ categories_id,
+            url: "{!! url(vendor().'subcategories') !!}/"+ categories_id,
             method:"get",
             dataType:"json",
             success: function(result){
@@ -257,43 +238,6 @@
     </script>
 
 
-     <script>
-
-      var   sub_types_id = $("#types").val();
-      sub_sub_types( sub_types_id);
-
-      $("#types").on('change',function(){
-        var   sub_types_id = $(this).val();
-        sub_sub_types( sub_types_id);
-      });
-
-      function sub_sub_types(  sub_types_id){
-        if( sub_types_id != ""){
-          $.ajax({
-            url: "{!! url('/sub_types') !!}/"+ sub_types_id,
-            method:"get",
-            dataType:"json",
-            success: function(result){
-              html = "";
-              html += '<option value="">--select--</option>';
-              $.each(result, function( index, value ) {
-                // console.log(value);
-
-                sel = "";
-                @if (old('sub_sub_types')) 
-                  old = "{{ old('sub_sub_types') }}" 
-                  if(old == value.id){
-                    sel = "selected";
-                  }
-                @endif
-
-                html += '<option value="'+value.id+'" '+sel+'>'+value.name+'</option>';
-              });
-              $("#sub_sub_types").html(html);
-            }
-          });
-        }
-      }
-    </script>
+    
 
 @endsection

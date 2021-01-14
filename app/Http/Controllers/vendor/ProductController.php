@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $data['titel']='Product';
         $data['categories'] = DB::table('categories')->get()->all();
-        $data['types'] = DB::table('product_types')->get()->all();
+        // $data['types'] = DB::table('product_types')->get()->all();
         return view('vendor.product.product_create')->with($data);
     }
     public function add()
@@ -82,7 +82,7 @@ class ProductController extends Controller
 
                 }
              }
-         return redirect('product')->with('msg_s', 'product inserted successfully.');
+         return redirect(vendor().'product/list')->with('msg_s', 'product inserted successfully.');
 
     }
     public function subcategories($id)
@@ -91,12 +91,7 @@ class ProductController extends Controller
         echo json_encode($subcategories);
 
     }
-    public function sub_types($id)
-    {
-        $sub_types=DB::table('product_sub_types')->where('type_id',$id)->get()->all();
-        echo json_encode($sub_types);
-
-    }
+   
     public function product_data()
     {
         $data = DB::table('products')->where('vedor_id',auth()->user()->id)->get();
