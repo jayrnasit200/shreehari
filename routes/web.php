@@ -44,11 +44,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('login',  [App\Http\Controllers\Auth\LoginController::class, 'index']);
+
 // Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('Admin');
 // Route::get('vendor', [App\Http\Controllers\HomeController::class, 'vendor'])->name('vendor')->middleware('vendor');
 Route::get('/vendor/register', [App\Http\Controllers\vendor\VendorController::class, 'register']);
 Route::post('/vendor/register', [App\Http\Controllers\vendor\VendorController::class, 'register_create']);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index']);
 
 
 
@@ -61,6 +66,12 @@ Route::get('vendor', [App\Http\Controllers\HomeController::class, 'vendor'])->na
 Route::get('/product/list', [App\Http\Controllers\vendor\ProductController::class, 'index']);
 Route::get('/product/create', [App\Http\Controllers\vendor\ProductController::class, 'create']);
 Route::post('/product/add', [App\Http\Controllers\vendor\ProductController::class, 'add']);
+Route::post('/product/delete', [App\Http\Controllers\vendor\ProductController::class, 'delete']);
+Route::get('/product/view/{id}', [App\Http\Controllers\vendor\ProductController::class, 'view']);
+Route::get('/product/edit/{id}', [App\Http\Controllers\vendor\ProductController::class, 'edit']);
+Route::post('/product/update', [App\Http\Controllers\vendor\ProductController::class, 'update']);
+Route::post('/product/img/delete', [App\Http\Controllers\vendor\ProductController::class, 'img_delete']);
+Route::post('/product/img/add', [App\Http\Controllers\vendor\ProductController::class, 'img_add']);
 Route::get('/subcategories/{id}', [App\Http\Controllers\vendor\ProductController::class, 'subcategories']);
 // Route::get('/sub_types/{id}', [App\Http\Controllers\vendor\ProductController::class, 'sub_types']);
 Route::get('/product_data', [App\Http\Controllers\vendor\ProductController::class, 'product_data'])->name('product_data');
@@ -104,6 +115,8 @@ Route::post('/product/img/delete', [App\Http\Controllers\Admin\ProductsControlle
 Route::post('/product/img/add', [App\Http\Controllers\Admin\ProductsController::class, 'img_add']);
 Route::get('/product/update_status/{id}/{status}', [App\Http\Controllers\Admin\ProductsController::class, 'update_status']);
 Route::get('/product/update_verify/{id}/{status}', [App\Http\Controllers\Admin\ProductsController::class, 'update_verify']);
+
+Route::get('/product/review', [App\Http\Controllers\Admin\ProductReviewcontroller::class, 'index']);
 
 
 });
