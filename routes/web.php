@@ -44,7 +44,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('login',  [App\Http\Controllers\Auth\LoginController::class, 'index']);
+// Route::get('login2',  [App\Http\Controllers\Auth\LoginController::class, 'index']);
 
 // Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('Admin');
 // Route::get('vendor', [App\Http\Controllers\HomeController::class, 'vendor'])->name('vendor')->middleware('vendor');

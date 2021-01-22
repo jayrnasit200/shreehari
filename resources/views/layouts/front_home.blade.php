@@ -258,7 +258,7 @@
     </div>
   </div>
 </div>
-<script src="javascript/parally.js"></script> 
+<script src="{{ url('front_assets/javascript/parally.js') }}"></script> 
 <script>
 $('.parallax').parally({offset: -40});
 </script>
