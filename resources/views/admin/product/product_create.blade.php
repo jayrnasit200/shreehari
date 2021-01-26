@@ -88,7 +88,7 @@
                         <div class="row">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Short Cicaripsan</label>
+                                    <label>Short Dicaripsan</label>
                                     <input type="text" name="short_dicaripsan" class="form-control @error('short_dicaripsan') is-invalid @enderror" placeholder="Enter Name" value="{{ old('short_dicaripsan') }}">
                                      @error('short_dicaripsan')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>

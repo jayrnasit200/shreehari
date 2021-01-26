@@ -55,6 +55,9 @@
                                     <select name="categories" id="categories" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
                                         @foreach ($categories as  $value)
+                                          @if(old('categories') == $value->id)
+                                          <option value="{{$value->id}}" selected>{{$value->name}}</option>
+                                          @endif
                                           <option value="{{$value->id}}" >{{$value->name}}</option>
                                         @endforeach
                                       </select>
@@ -82,7 +85,7 @@
                         <div class="row">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Short Cicaripsan</label>
+                                    <label>Short Dicaripsan</label>
                                     <input type="text" name="short_dicaripsan" class="form-control @error('short_dicaripsan') is-invalid @enderror" placeholder="Enter Name" value="{{ old('short_dicaripsan') }}">
                                      @error('short_dicaripsan')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>

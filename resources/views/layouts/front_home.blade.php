@@ -13,6 +13,7 @@
 <link href="{{ url('front_assets/css/responsive.css') }}" rel="stylesheet">
 <link href="{{ url('front_assets/owl-carousel/owl.carousel.css') }}" type="text/css" rel="stylesheet" media="screen" />
 <link href="{{ url('front_assets/owl-carousel/owl.transitions.css') }}" type="text/css" rel="stylesheet" media="screen" />
+@yield('css')
 <script src="{{ url('front_assets/javascript/jquery-2.1.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ url('front_assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ url('front_assets/javascript/jstree.min.js') }}" type="text/javascript"></script>
@@ -259,6 +260,8 @@
   </div>
 </div>
 <script src="{{ url('front_assets/javascript/parally.js') }}"></script> 
+@yield('js')
+
 <script>
 $('.parallax').parally({offset: -40});
 </script>

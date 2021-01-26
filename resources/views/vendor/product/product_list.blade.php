@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Type</h3>
+                    <h3 class="card-title">Product</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -25,9 +25,9 @@
                     <table id="example" class="table  table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>ID</th>
-                                <th>Model Number</th>
+                                <th>Model N0</th>
+                                <th class="w-50">Product Name</th>
                                 <th>image</th>
                                 <th>status</th>
                                 <th>Action</th>

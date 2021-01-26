@@ -53,7 +53,7 @@ Route::post('/vendor/register', [App\Http\Controllers\vendor\VendorController::c
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index']);
+Route::get('/product/{code}', [App\Http\Controllers\ProductController::class, 'index']);
 
 
 
