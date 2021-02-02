@@ -16,7 +16,9 @@ class CreateProductReviewsTable extends Migration
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
+            $table->string('name');
             $table->text('msg');
+            $table->double('stars',20,2);
             $table->enum('status',['success','pending']);
             $table->timestamps();
         });

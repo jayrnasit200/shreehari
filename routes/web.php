@@ -54,6 +54,7 @@ Route::post('/vendor/register', [App\Http\Controllers\vendor\VendorController::c
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/product/{code}', [App\Http\Controllers\ProductController::class, 'index']);
+Route::post('/product/review', [App\Http\Controllers\ProductController::class, 'review']);
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index']);
 Route::get('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart']);
 

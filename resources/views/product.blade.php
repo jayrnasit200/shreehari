@@ -370,20 +370,23 @@
                         <!-- cpt_container_end -->
                     </div>
                     <div class="tab-pane" id="tab-review">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" method="post" action="{{ url('/product/review') }}">@csrf
                             <div id="review"></div>
+                            <input type="hidden" name="id" value="{{ $pro->id }}">
+                            <input type="hidden" name="model_number" value="{{ $pro->model_number }}">
                             <h2>Write a review</h2>
                             <div class=" required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-name">Your Name</label>
                                     <input type="text" name="name" value="" id="input-name" class="form-control" />
+                                    @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                             <div class=" required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-review">Your Review</label>
                                     <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                                    
+                                    @error('text')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                             <div class=" required rating">
@@ -419,9 +422,10 @@
                                       </label>
                                     &nbsp;
                             </div>
+                            @error('stars')<span class="text-danger">{{ $message }}</span>@enderror
                             <div class="buttons clearfix">
                                 <div class="pull-right">
-                                    <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Continue</button>
+                                    <button type="submit" name="submit" data-loading-text="Loading..." class="btn btn-primary">Continue</button>
                                 </div>
                             </div>
                         </form>

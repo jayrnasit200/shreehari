@@ -37,9 +37,9 @@ class ProductController extends Controller
             // 'type' => 'required',
             // 'sub_types' => 'required',
             'short_dicaripsan' => 'required',
-            'price' => 'required',
+            'price' => 'required|lte:discount',
+            'discount' => 'required',
             'dicaripsan' => 'required',
-            'discount' => 'required|lte:price',
         ]);
            $this->validate(request(), [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif',
@@ -139,7 +139,7 @@ class ProductController extends Controller
             @unlink($value->image);
             ProductsImages::where('id', $value->id)->delete();
         }
-        return redirect(vendor() . 'product')->with('msg_s', 'product delete successfully.');
+        return redirect(vendor() . 'product/list')->with('msg_s', 'product delete successfully.');
     }
      public function edit($id = '')
     {
@@ -161,9 +161,9 @@ class ProductController extends Controller
             'categories' => 'required',
             'subcategories' => 'required',
             'short_dicaripsan' => 'required',
-            'price' => 'required',
+            'price' => 'required|lte:discount',
             'dicaripsan' => 'required',
-            'discount' => 'required|lte:price',
+            'discount' => 'required',
         ]);
         $img_name = request()->old_image;
         if (request()->image) {

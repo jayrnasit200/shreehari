@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\DB;
 use App\Models\WebConfigs;
+use App\Models\Category;
+use App\Models\Subcategory;
 
 		if (!function_exists('referral_code_generate')) {
 		    function referral_code_generate($length_of_string)
@@ -41,6 +43,21 @@ use App\Models\WebConfigs;
 		            ->where('option', '=', $option)
 		            ->get()
 		            ->first()->value;
+		        return $value;
+		    }
+		}
+
+		if (!function_exists('get_category')) {
+		    function get_category()
+		    {
+		        $value = Category::get()->all();
+		        return $value;
+		    }
+		}
+		if (!function_exists('get_subcategory_by_id')) {
+		    function get_subcategory_by_id($id)
+		    {
+		        $value = Subcategory::where('categories_id',$id)->get()->all();
 		        return $value;
 		    }
 		}

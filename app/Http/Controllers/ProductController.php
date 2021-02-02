@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\ProductsImages;
+use App\Models\ProductReview;
 
 class ProductController extends Controller
 {
@@ -20,5 +21,22 @@ class ProductController extends Controller
 	    	// print_r();
 	    	// exit();
     	return view('product')->with($data);
+    }
+    public function review()
+    {
+        $this->validate(request(), [
+            "name" => "required",
+            "text" => "required",
+            "stars" => "required",
+        ]);
+        $model_number=request()->model_number;
+        ProductReview::create([
+            'product_id' => request()->id,
+            'name' => request()->name,
+            'msg' => request()->text,
+            'stars' => request()->stars,
+            'status' => 'success',
+            ]);
+       return redirect(url('product',$model_number))->with('msg_s', 'review send Successfully.');
     }
 }
