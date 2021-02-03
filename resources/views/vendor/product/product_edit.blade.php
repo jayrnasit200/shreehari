@@ -108,14 +108,14 @@
                         <div class="row">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>price</label>
+                                    <label>Selling Price</label>
                                     <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Enter price" value="{{ old('price',$products->price) }}">
                                      @error('price')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                  <div class="form-group">
-                                    <label>discount</label>
-                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter discount" value="{{ old('discount',$products->discount) }}">
+                                    <label>Factory Price</label>
+                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter Factory Price" value="{{ old('discount',$products->discount) }}">
                                      @error('discount')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 

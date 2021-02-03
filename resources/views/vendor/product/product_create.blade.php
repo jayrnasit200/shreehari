@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>categories</label>
+                                    <label>Categories</label>
                                     <select name="categories" id="categories" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
                                         @foreach ($categories as  $value)
@@ -65,7 +65,7 @@
                                 </div>
 
                                  <div class="form-group">
-                                    <label>subcategories</label>
+                                    <label>Subcategories</label>
                                     <select name="subcategories" id="subcategories" class="form-control select2" style="width: 100%;" aria-hidden="true">
                                         <option value=""> --select--</option>
                                         <!-- <option>Alaska</option> -->
@@ -105,14 +105,14 @@
                         <div class="row">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>price</label>
+                                    <label>Selling Price</label>
                                     <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Enter price" value="{{ old('price') }}">
                                      @error('price')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                  <div class="form-group">
-                                    <label>discount</label>
-                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter discount" value="{{ old('discount') }}">
+                                    <label>Factory Price</label>
+                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter Factory Price" value="{{ old('discount') }}">
                                      @error('discount')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
