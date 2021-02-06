@@ -51,6 +51,8 @@ use App\Models\Subcategory;
 		    function get_category()
 		    {
 		        $value = Category::get()->all();
+		        // print_r($value);
+		        // exit();
 		        return $value;
 		    }
 		}

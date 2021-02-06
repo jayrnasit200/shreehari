@@ -130,10 +130,10 @@
           <ul class="main-navigation">
             <li><a href="{{ url('/') }}">Home</a> </li>
              @foreach(get_category() as $val)
-              <li><a href="#">{{ $val->name }}</a>
+              <li><a>{{ $val->name }}</a>
               <ul>
                 @foreach(get_subcategory_by_id($val->id) as $val)
-                <li><a href="#">{{ $val->name }}</a></li>
+                <li><a href="{{ url('/category',$val->name) }}">{{ $val->name }}</a></li>
                 @endforeach
               </ul>
                 @endforeach
@@ -144,6 +144,7 @@
         </div>
       </div>
     </nav>
+    <hr>
   </div>
 </header>
 
