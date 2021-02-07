@@ -108,14 +108,14 @@
                         <div class="row">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>price</label>
+                                    <label>Selling Price</label>
                                     <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Enter price" value="{{ old('price') }}">
                                      @error('price')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
                                  <div class="form-group">
-                                    <label>discount</label>
-                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter discount" value="{{ old('discount') }}">
+                                    <label>Factory Price</label>
+                                    <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" placeholder="Enter Factory Price" value="{{ old('discount') }}">
                                      @error('discount')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
 
@@ -198,6 +198,7 @@
     function preview_images() 
     {
      var total_file=document.getElementById("images").files.length;
+     $("#image_preview").empty();
      for(var i=0;i<total_file;i++)
      {
       $('#image_preview').append("<div class='col-md-2 m-1'><img class='img-responsive img-fluid ' height='150' width='150' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");

@@ -202,8 +202,11 @@ div.required .control-label:before {
 }
 /* logo */
 #logo {
-	margin: 40px 0 10px 0;
+	/*margin: 40px 0 10px 0;*/
 	display: inline-block;
+}
+#logo a img{
+	max-height: 100px;
 }
 .shipping-img, .returns-img {
 	background: url(../image/shipping.png) no-repeat scroll 0 -77px;

@@ -48,12 +48,14 @@
                       @endif
                   </ul>
                 </li>
-                <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li>
+                <!-- <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li> -->
               </ul>
-              <div class="search-box">
-                <input class="input-text" placeholder="Search By Products.." type="text">
-                <button class="search-btn"><i class="fa fa-search"></i></button>
-              </div>
+                <div class="search-box">
+              <form method="post" action="{{'search'}}">
+                  <input class="input-text" placeholder="Search By Products.." type="text">
+                  <button class="search-btn"><i class="fa fa-search"></i></button>
+              </form>
+                </div>
             </div>
           </div>
         </div>
@@ -65,19 +67,19 @@
       <div class="col-sm-4 col-xs-6 header-left">
         <div class="shipping">
           <div class="shipping-img"></div>
-          <div class="shipping-text">(+91) 000-1233<br>
+          <div class="shipping-text"> {{ sys_config('phone') }} <br>
             <span class="shipping-detail">24/7 Online Support</span></div>
         </div>
       </div>
       <div class="col-sm-4 col-xs-12 header-middle">
         <div class="header-middle-top">
-          <div id="logo"> <a href="index-2.html"><img src="{{ url('front_assets/image/logo.png') }}" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
+          <div id="logo"> <a href="{{ url('/') }}"><img src="{{ url(sys_config('logo')) }}" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
         </div>
       </div>
       <div class="col-sm-4 col-xs-12 header-right">
         <div id="cart" class="btn-group btn-block">
           <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-          0 item(s) - $0.00</span> </button>
+          0 item(s)</span> </button>
           <ul class="dropdown-menu pull-right cart-dropdown-menu">
             <li>
               <table class="table table-striped">
@@ -225,11 +227,11 @@
           <div class="footer-social">
             <h5>Social</h5>
             <ul>
-              <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li class="gplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+              <li class="facebook"><a target="_blank" href="{{ sys_config('facebook') }}"><i class="fa fa-facebook"></i></a></li>
+              <li class="linkedin"><a target="_blank" href="{{ sys_config('linkedin') }}"><i class="fa fa-linkedin"></i></a></li>
+              <li class="twitter"><a target="_blank" href="{{ sys_config('twitter') }}"><i class="fa fa-twitter"></i></a></li>
+              <li class="instagram"><a target="_blank" href="{{ sys_config('instagram') }}"><i class="fa fa-instagram"></i></a></li>
+              <li class="youtube"><a target="_blank" href="{{ sys_config('youtube') }}"><i class="fa fa-youtube-play"></i></a></li>
             </ul>
           </div>
         </div>
@@ -239,7 +241,7 @@
   <a id="scrollup">Scroll</a> </footer>
 <div class="footer-bottom">
   <div class="container">
-    <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy; 2017 </a> </div>
+    <div class="copyright">{{ sys_config('copyright_text') }}</a> </div>
     <div class="footer-bottom-cms">
       <div class="footer-payment">
         <ul>

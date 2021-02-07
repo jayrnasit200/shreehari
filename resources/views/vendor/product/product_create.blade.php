@@ -195,6 +195,7 @@
     function preview_images() 
     {
      var total_file=document.getElementById("images").files.length;
+      $("#image_preview").empty();
      for(var i=0;i<total_file;i++)
      {
       $('#image_preview').append("<div class='col-md-2 m-1'><img class='img-responsive img-fluid ' height='150' width='150' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
