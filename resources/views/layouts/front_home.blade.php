@@ -135,7 +135,7 @@
               <li><a>{{ $val->name }}</a>
               <ul>
                 @foreach(get_subcategory_by_id($val->id) as $val)
-                <li><a href="{{ url('/category',$val->name) }}">{{ $val->name }}</a></li>
+                <li><a href="{{ url('/category',$val->categories_id)}}/{{$val->name}}">{{ $val->name }}</a></li>
                 @endforeach
               </ul>
                 @endforeach

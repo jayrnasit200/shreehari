@@ -63,5 +63,11 @@ use App\Models\Subcategory;
 		        return $value;
 		    }
 		}
+		if (!function_exists('user_data')) {
+		    function user_data()
+		    {
+		        return  Auth::user();
+		    }
+		}
 
 ?>

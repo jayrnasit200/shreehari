@@ -57,7 +57,7 @@ Route::get('/product/{code}', [App\Http\Controllers\ProductController::class, 'i
 Route::post('/product/review', [App\Http\Controllers\ProductController::class, 'review']);
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index']);
 Route::get('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart']);
-Route::get('/category/{subcategory_name}', [App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/category/{cat_id}/{subcategory_name}', [App\Http\Controllers\CategoryController::class, 'index']);
 
 
 

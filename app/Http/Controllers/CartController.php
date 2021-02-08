@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
-    	$userID=1;
+    	$userID=user_data()->id;
   //   	Cart::clear();
 		// Cart::session($userID)->clear();
 
@@ -29,7 +29,9 @@ class CartController extends Controller
     }
     public function add_cart()
     {
-    	$userID=1;
+    	print_r(request()->all());
+    	exit();
+    	$userID=user_data()->id;
     	Cart::session($userID)->add(array(
 		    'id' => '1',
 		    'name' => '$Product->name',
