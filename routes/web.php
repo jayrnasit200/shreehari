@@ -122,5 +122,12 @@ Route::get('/product/update_verify/{id}/{status}', [App\Http\Controllers\Admin\P
 
 Route::get('/product/review', [App\Http\Controllers\Admin\ProductReviewcontroller::class, 'index']);
 
+Route::get('/banners', [App\Http\Controllers\Admin\BannerController::class, 'index']);
+Route::get('/banners_data', [App\Http\Controllers\Admin\BannerController::class, 'banners_data'])->name('banners_data');
+Route::get('/banners/create', [App\Http\Controllers\Admin\BannerController::class, 'create']);
+Route::post('/banners/add', [App\Http\Controllers\Admin\BannerController::class, 'add']);
+Route::post('/banners/delete', [App\Http\Controllers\Admin\BannerController::class, 'delete']);
+Route::get('/banners/edit/{id}', [App\Http\Controllers\Admin\BannerController::class, 'edit']);
+Route::post('/banners/update', [App\Http\Controllers\Admin\BannerController::class, 'update']);
 
 });

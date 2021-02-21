@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\WebConfigs;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Banner;
 
 		if (!function_exists('referral_code_generate')) {
 		    function referral_code_generate($length_of_string)
@@ -67,6 +68,13 @@ use App\Models\Subcategory;
 		    function user_data()
 		    {
 		        return  Auth::user();
+		    }
+		}
+		if (!function_exists('get_banner_by_name')) {
+		    function get_banner_by_name($status)
+		    {
+		        $value = Banner::where('status',$status)->get()->all();
+		        return $value;
 		    }
 		}
 

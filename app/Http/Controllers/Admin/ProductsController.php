@@ -31,9 +31,8 @@ class ProductsController extends Controller
                  <a href="' .url(admin() . 'product/edit') .'/' .$row->id .'" class="btn btn-primary"><i class="far fa-edit"></i></a>
 
                     <a href="' .url(admin() . 'product/view/') .'/' . $row->id .'" class="btn btn-dark"><i class="fas fa-eye"></i></a>
-
+                    
                   <a onClick="confirmDelete(\'' . $row->id .'\',\'Product\',\'' .$delete_action . '\')" class="btn text-white btn-danger"><i class="far fa-trash-alt"></i></a>
-
                 <a href="' .url(admin() . 'product/update_verify') .'/' .$row->id .'/' .$row->verify . '" class="btn btn-success text-white"><i class="fas fa-check-circle"></i></a>';
             })
             ->addColumn('image', function ($row) {

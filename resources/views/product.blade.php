@@ -107,6 +107,9 @@
                     <div class="d-flex">
                         <label class="productpage-price"><h1>Price : {{ $pro->discount }} ₹</h1></label> &nbsp; 
                             <span class="productinfo-tax"><s> {{ $pro->price }}</s></span>
+                            @if($pro->verify == 'Yes')
+                            <img height="30" width="30" src="{{ url('upload/verified.gif') }}">
+                            @endif
                     </div>
                             
                     <hr />
@@ -138,7 +141,7 @@
                             <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control productpage-qty" />
                             <input type="hidden" name="product_id" value="48" />
                             <div class="btn-group">
-                                <button type="button" data-toggle="tooltip" class="btn btn-default wishlist" title="" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                <!-- <button type="button" data-toggle="tooltip" class="btn btn-default wishlist" title="" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button> -->
                                 <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart">Add to Cart</button>
                                 <!-- <button type="button" data-toggle="tooltip" class="btn btn-default compare" title="" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button> -->
                             </div>
@@ -149,7 +152,7 @@
             <div class="productinfo-tab">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
-                    <li><a href="#tab-review" data-toggle="tab">Reviews (1)</a></li>
+                    <li><a href="#tab-review" data-toggle="tab">Reviews</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-description">

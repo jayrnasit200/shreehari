@@ -4,31 +4,22 @@
 <div class="container">
   <div class="mainbanner">
   <div id="main-banner" class="owl-carousel home-slider">
-    <div class="item"> <a href="#"><img src="{{ url('front_assets/image/banners/Main-Banner1.jpg') }}" alt="main-banner1" class="img-responsive" /></a> </div>
-    <div class="item"> <a href="#"><img src="{{ url('front_assets/image/banners/Main-Banner2.jpg') }}" alt="main-banner2" class="img-responsive" /></a> </div>
-    <div class="item"> <a href="#"><img src="{{ url('front_assets/image/banners/Main-Banner3.jpg') }}" alt="main-banner3" class="img-responsive" /></a> </div>
+    @foreach(get_banner_by_name('banner') as $val)
+    <div class="item"> <a href="#"><img src="{{ url($val->image) }}" alt="main-banner1" class="img-responsive" /></a> </div>
+    @endforeach
   </div>
 </div>
 </div>
 <div class="container">
   <div class="row">  
     <div id="brand_carouse" class="owl-carousel brand-logo">
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand1.png') }}" alt="Disney" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand2.png') }}" alt="Dell" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand3.png') }}" alt="Harley" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand4.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand5.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand6.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand7.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand8.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand9.png') }}" alt="Canon" class="img-responsive" /></a> </div>
-        <div class="item text-center"> <a href="#"><img src="{{ url('front_assets/image/brand/brand5.png') }}" alt="Canon" class="img-responsive" /></a> </div>
+        
+        @foreach(get_banner_by_name('logo') as $val)
+        <div class="item text-center"> <a href="#"><img src="{{ url($val->image) }}" alt="Disney" class="img-responsive" /></a> </div>
+        @endforeach
+       
       </div>
-    <div class="cms_banner ">
-      <div class="col-md-4 cms-banner-left"> <a href="#"><img alt="#" src="{{ url('front_assets/image/banners/subbanner1.jpg') }}"></a> </div>
-      <div class="col-md-4 cms-banner-middle"><a href="#"> <img alt="#" src="{{ url('front_assets/image/banners/subbanner2.jpg') }}"></a></div>
-      <div class="col-md-4 cms-banner-right"> <a href="#"><img alt="#" src="{{ url('front_assets/image/banners/subbanner3.jpg') }}"></a> </div>
-    </div>
+ 
   </div>
   <div class="row">
     <div id="content" class="col-sm-12">

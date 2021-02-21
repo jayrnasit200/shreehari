@@ -240,7 +240,7 @@
                 </ul>
           </li>
 
-            <li class="nav-item has-treeview {{ (request()->segment(2) == 'product') ? 'menu-open' : '' }}">
+          <li class="nav-item has-treeview {{ (request()->segment(2) == 'product') ? 'menu-open' : '' }}">
             <a href="{{ url(admin().'product') }}" class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-box"></i>
               <p>
@@ -267,6 +267,15 @@
                 </ul>
           </li>
 
+          <li class="nav-item has-treeview {{ (request()->segment(2) == 'banners') ? 'menu-open' : '' }}">
+            <a href="{{ url(admin().'banners') }}" class="nav-link {{ (request()->segment(2) == 'banners') ? 'active' : '' }} ">
+              <i class="nav-icon fas fa-images"></i>
+              <p>
+                Banners 
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
 <!--           <li class="nav-item has-treeview {{ (request()->segment(1) == 'product') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ (request()->segment(1) == 'product') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-box"></i>
