@@ -206,7 +206,7 @@ div.required .control-label:before {
 	display: inline-block;
 }
 #logo a img{
-	max-height: 100px;
+	max-height: 80px;
 }
 .shipping-img, .returns-img {
 	background: url(../image/shipping.png) no-repeat scroll 0 -77px;

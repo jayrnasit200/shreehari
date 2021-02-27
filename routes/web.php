@@ -55,10 +55,13 @@ Route::post('/vendor/register', [App\Http\Controllers\vendor\VendorController::c
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/product/{code}', [App\Http\Controllers\ProductController::class, 'index']);
 Route::post('/product/review', [App\Http\Controllers\ProductController::class, 'review']);
-Route::get('/cart', [App\Http\Controllers\CartController::class, 'index']);
-Route::get('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart']);
 Route::get('/category/{cat_id}/{subcategory_name}', [App\Http\Controllers\CategoryController::class, 'index']);
-
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/cart', [App\Http\Controllers\CartController::class, 'index']);
+    Route::post('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart'])->name('add_cart');
+    Route::get('/cart_remove/{id}', [App\Http\Controllers\CartController::class, 'cart_remove']);
+    Route::post('/cart_update', [App\Http\Controllers\CartController::class, 'cart_update']);
+});
 
 
 Route::group(['middleware' => ['auth','vendor'],'prefix' => 'vendor'], function() {

@@ -45,8 +45,8 @@
                     <div class="image product-imageblock">
                         <a href="{{ url('product',$pro->model_number) }}"> <img src="{{ url($pro->image) }}" class="img-responsive" style="margin: auto; max-height: 180px;" /> </a>
                         <div class="button-group">
-                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                            <button type="button" class="addtocart-btn">Add to Cart</button>
+                            <!-- <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button> -->
+                            <button type="button" id="{{$pro->id}}" class="addtocart-btn">Add to Cart</button>
                             <!-- <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button> -->
                         </div>
                     </div>
@@ -56,9 +56,9 @@
                         <p class="price product-price"><span class="price-old">{{ $pro->discount }} ₹</span> {{ $pro->price }} ₹</p>
                     </div>
                     <div class="button-group">
-                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button>
+                        <!-- <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button> -->
+                        <button type="button" id="{{$pro->id}}" class="addtocart-btn">Add to Cart</button>
+                        <!-- <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button> -->
                     </div>
                 </div>
             </div>
@@ -72,4 +72,7 @@
     </div>
     </div>
 </div>
+@endsection
+@section('js')
+
 @endsection

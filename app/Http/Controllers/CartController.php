@@ -4,41 +4,54 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use Auth;
 
 class CartController extends Controller
 {
     public function index()
     {
     	$userID=user_data()->id;
-  //   	Cart::clear();
-		// Cart::session($userID)->clear();
-
-		// view the cart items
-		$items = \Cart::session($userID)->getContent();
-		foreach($items as $row) {
-
-			echo $row->id; // row ID
-			echo $row->name;
-			echo $row->qty;
-			echo $row->price;
-			
-			// echo $item->associatedModel->id; // whatever properties your model have
-		 //        echo $item->associatedModel->name; // whatever properties your model have
-		 //        echo $item->associatedModel->description; // whatever properties your model have
-		}
+		$data['product'] = \Cart::session($userID)->getContent();
+		$data['sub_total'] = Cart::session($userID)->getSubTotal();;
+		return view('cart')->with($data);
     }
     public function add_cart()
     {
-    	print_r(request()->all());
-    	exit();
+    	if (!empty(Auth::user()->id)) {
+	    	$id=request()->id;
+	    	$data=product_data($id);
+			$userID=Auth::user()->id;
+	    	$qty=1;
+	    	Cart::session($userID)->add(array(
+			    'id' => $data->id,
+			    'name' => $data->name,
+			    'price' => $data->discount,
+			    'quantity' => $qty,
+			    'attributes' => $data,
+			));
+			return true;
+    	}else{
+    		return false;
+    	}
+    }
+    public function cart_remove($id)
+    {
     	$userID=user_data()->id;
-    	Cart::session($userID)->add(array(
-		    'id' => '1',
-		    'name' => '$Product->name',
-		    'price' => 150,
-		    'quantity' => 4,
-		    'attributes' => array(),
-		    // 'associatedModel' => $Product
-		));
+		// Cart::session($userID)->clear();
+    	Cart::session($userID)->remove($id);
+    	return redirect('cart')->with('msg_s', 'Product remove Cart Successfully.');
+    }
+    public function cart_update()
+    {
+    	$id = request()->id;
+    	$quantity = request()->quantity;
+    	$data=product_data($id);
+    	print_r($data->price*$quantity);
+    	exit();
+		$userID=Auth::user()->id;
+    	\Cart::session($userID)->update($id,[
+			'quantity' => $quantity,
+			'price' => 98.67
+		]);
     }
 }

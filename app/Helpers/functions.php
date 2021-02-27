@@ -4,6 +4,7 @@ use App\Models\WebConfigs;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Banner;
+use App\Models\Products;
 
 		if (!function_exists('referral_code_generate')) {
 		    function referral_code_generate($length_of_string)
@@ -67,13 +68,20 @@ use App\Models\Banner;
 		if (!function_exists('user_data')) {
 		    function user_data()
 		    {
-		        return  Auth::user();
+			        return Auth::user();
 		    }
 		}
 		if (!function_exists('get_banner_by_name')) {
 		    function get_banner_by_name($status)
 		    {
 		        $value = Banner::where('status',$status)->get()->all();
+		        return $value;
+		    }
+		}
+		if (!function_exists('product_data')) {
+		    function product_data($id)
+		    {
+		        $value = Products::where('id',$id)->get()->first();
 		        return $value;
 		    }
 		}
