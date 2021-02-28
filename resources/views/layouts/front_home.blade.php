@@ -100,7 +100,7 @@
               </ul>
                 @endforeach
             </li>
-            <li><a href="about-us.html" >About us</a></li>
+            <!-- <li><a href="about-us.html" >About us</a></li> -->
             <li><a href="contact.html" >Contact Us</a> </li>
           </ul>
         </div>
@@ -251,6 +251,9 @@
              window.location.href = "{{url('/login')}}";
           }
         },
+        error: function() {
+             window.location.href = "{{url('/login')}}";
+        }
        });
     }); 
      $(".cart-button").click(function(){

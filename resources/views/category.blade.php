@@ -43,7 +43,7 @@
             <div class="product-layout product-list col-xs-12" id="product_page_pro">
                 <div class="product-thumb">
                     <div class="image product-imageblock">
-                        <a href="{{ url('product',$pro->model_number) }}"> <img src="{{ url($pro->image) }}" class="img-responsive" style="margin: auto; max-height: 180px;" /> </a>
+                        <a href="{{ url('product',$pro->model_number) }}"> <img src="{{ url($pro->image) }}" class="pro_img img-responsive" /> </a>
                         <div class="button-group">
                             <!-- <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button> -->
                             <button type="button" id="{{$pro->id}}" class="addtocart-btn">Add to Cart</button>

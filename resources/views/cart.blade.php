@@ -34,7 +34,7 @@
                                 <td class="text-left"><a href="{{ url('/product',$val->attributes->model_number) }}">{{$val->name}}</a></td>
                                 <td class="text-left"><div style="max-width: 200px;" class="input-group btn-block">
                                     <input type="text" class="form-control quantity" size="1" value="{{$val->quantity}}" name="quantity">
-                                    <input type="hidden1" name="id" value="{{$val->id}}">
+                                    <input type="hidden" name="id" value="{{$val->id}}">
                                     <span class="input-group-btn">
                                     <button class="btn btn-primary"  data-toggle="tooltip" type="submit" name="submit" data-original-title="Update"><i class="fa fa-refresh"></i></button>
                                     <a href="{{ url('cart_remove',$val->id) }}"><button  class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="Remove"><i class="fa fa-times-circle"></i></button></a>

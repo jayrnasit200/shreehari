@@ -25,7 +25,7 @@ class CartController extends Controller
 	    	Cart::session($userID)->add(array(
 			    'id' => $data->id,
 			    'name' => $data->name,
-			    'price' => $data->discount,
+			    'price' => $data->price,
 			    'quantity' => $qty,
 			    'attributes' => $data,
 			));
@@ -46,12 +46,16 @@ class CartController extends Controller
     	$id = request()->id;
     	$quantity = request()->quantity;
     	$data=product_data($id);
-    	print_r($data->price*$quantity);
-    	exit();
 		$userID=Auth::user()->id;
-    	\Cart::session($userID)->update($id,[
-			'quantity' => $quantity,
-			'price' => 98.67
-		]);
+        Cart::session($userID)->remove($id);
+    	$data=product_data($id);
+        Cart::session($userID)->add(array(
+                'id' => $data->id,
+                'name' => $data->name,
+                'price' => $data->price,
+                'quantity' => $quantity,
+                'attributes' => $data,
+            ));
+        return redirect('cart')->with('msg_s', 'Cart Update Successfully.');
     }
 }

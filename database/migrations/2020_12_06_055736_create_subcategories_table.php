@@ -19,6 +19,7 @@ class CreateSubcategoriesTable extends Migration
             $table->integer('categories_id');
             $table->string('name');
             $table->text('image')->nullable();
+            $table->enum('Show_home',['yes','no'])->default('no');
             $table->timestamps();
             
 

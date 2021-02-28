@@ -85,5 +85,21 @@ use App\Models\Products;
 		        return $value;
 		    }
 		}
+		if (!function_exists('cat_for_show_home')) {
+		    function cat_for_show_home()
+		    {
+		        $value = Subcategory::where('Show_home','yes')->join('categories', 'subcategories.categories_id', '=', 'categories.id')
+		        ->select('subcategories.id','subcategories.name','subcategories.Show_home','categories.name as cat_name')->get()->all();
+		        return $value;
+		    }
+		}
+		if (!function_exists('get_sub_data_limit')) {
+		    function get_sub_data_limit($id)
+		    {
+		    	$limit=10;
+		        $value = Products::where('subcategories_id',$id)->take($limit)->inRandomOrder()->get()->all();
+		        return $value;
+		    }
+		}
 
 ?>

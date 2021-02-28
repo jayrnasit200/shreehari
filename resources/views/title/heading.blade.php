@@ -13,7 +13,7 @@
                     </div> -->
                 </div>
             </div>
-        <div class="container">
+        <div class="container-fluid">
   @if(session()->get('msg_s'))
          <div class="alert alert-success alert-dismissible" id="msg">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

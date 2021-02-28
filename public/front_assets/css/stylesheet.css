@@ -2688,3 +2688,14 @@ div.dioprogress_size_l {
     opacity: 0.7;
 }
 
+
+
+.pro_img{
+	/*width: 275px !important;
+	height: 370px !important;*/
+	/*min-width: 275px;*/
+	/*max-width: 275px;*/
+	min-height: 250px;
+	max-height: 250px;
+	margin: auto;
+}

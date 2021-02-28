@@ -10,6 +10,7 @@ use App\Models\Vendor;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Products;
 
 class HomeController extends Controller
 {
@@ -33,7 +34,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data['latest']=Products::orderBy('created_at', 'desc')->take(10)->get()->all();
+        $data['best']=Products::where('verify', 'Yes')->inRandomOrder()->take(10)->get()->all();
+        // print_r($data['LATEST']);
+        return view('home')->with($data);
     }
     public function admin()
     {
