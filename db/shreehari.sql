@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 28, 2021 at 11:42 AM
+-- Generation Time: Feb 28, 2021 at 02:24 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -878,7 +878,7 @@ CREATE TABLE IF NOT EXISTS `web_configs` (
   `option` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `web_configs`
@@ -894,7 +894,8 @@ INSERT INTO `web_configs` (`id`, `option`, `value`) VALUES
 (7, 'linkedin', 'https://www.linkedin.com/in/nasit-jay-3857b31b0/'),
 (8, 'twitter', 'https://twitter.com/jayrnasit'),
 (9, 'youtube', 'https://www.youtube.com/channel/UCQJMPzBDp5Ru42EXGODwjVg'),
-(10, 'instagram', 'https://www.instagram.com/jay_nasit_/');
+(10, 'instagram', 'https://www.instagram.com/jay_nasit_/'),
+(11, 'delivery_charges', '50');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

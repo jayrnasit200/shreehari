@@ -48,54 +48,37 @@
                 </tbody>
               </table>
             </div>
-          <h2>What would you like to do next?</h2>
-          <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-          <div id="accordion" class="panel-group">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"><a data-parent="#accordion" data-toggle="collapse" class="accordion-toggle" href="#collapse-coupon">Use Coupon Code <i class="fa fa-caret-down"></i></a></h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapse-coupon">
-                <div class="panel-body">
-                  <label for="input-coupon" class="col-sm-3 control-label">Enter your coupon here</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="input-coupon" placeholder="Enter your coupon here" value="" name="coupon">
-                    <span class="input-group-btn">
-                    <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-coupon" value="Apply Coupon">
-                    </span></div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
+       
           <br>
-          <div class="row">
-            <div class="col-sm-4 col-sm-offset-8">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <td class="text-right"><strong>Sub-Total:</strong></td>
-                    <td class="text-right">{{$sub_total}}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-right"><strong>Eco Tax (-2.00):</strong></td>
-                    <td class="text-right">$2.00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-right"><strong>Discount:</strong></td>
-                    <td class="text-right">$42.00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-right"><strong>Total:</strong></td>
-                    <td class="text-right">$254.00</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="row">
+              <div class="col-sm-4 col-sm-offset-8">
+                 @if(!$sub_total == 0)
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td class="text-right"><strong>Sub-Total:</strong></td>
+                        <td class="text-right">{{$sub_total}}</td>
+                      </tr>
+                      <tr>
+                        <td class="text-right"><strong>Delivery Charges :</strong></td>
+                        <td class="text-right">{{$delivery_charges}}</td>
+                      </tr>
+                      <tr>
+                        <td class="text-right"><strong>Total:</strong></td>
+                        <td class="text-right">{{ ($sub_total+$delivery_charges) }}</td>
+                        <input type="hidden" name="Total" value="{{ ($sub_total+$delivery_charges) }}">
+                      </tr>
+                    </tbody>
+                  </table>
+                  @endif
+              </div>
             </div>
-          </div>
+
           <div class="buttons">
             <div class="pull-left"><a class="btn btn-default" href="{{ url('/') }}">Continue Shopping</a></div>
-            <div class="pull-right"><a class="btn btn-primary" href="checkout.html">Checkout</a></div>
+            @if(!$sub_total == 0)
+                <div class="pull-right"><button  name="submit" class="btn btn-primary">Checkout</button></div>
+             @endif
           </div>
         </div>
     </div>

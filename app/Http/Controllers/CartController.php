@@ -12,7 +12,8 @@ class CartController extends Controller
     {
     	$userID=user_data()->id;
 		$data['product'] = \Cart::session($userID)->getContent();
-		$data['sub_total'] = Cart::session($userID)->getSubTotal();;
+		$data['sub_total'] = Cart::session($userID)->getSubTotal();
+        $data['delivery_charges'] = sys_config('delivery_charges');
 		return view('cart')->with($data);
     }
     public function add_cart()
@@ -57,5 +58,10 @@ class CartController extends Controller
                 'attributes' => $data,
             ));
         return redirect('cart')->with('msg_s', 'Cart Update Successfully.');
+    }
+    public function Checkout()
+    {
+        print_r(Request()->all());
+        exit();
     }
 }
