@@ -79,7 +79,7 @@
       <div class="col-sm-4 col-xs-12 header-right">
         <div id="cart" class="btn-group btn-block">
           <button type="button" class="btn btn-inverse btn-block btn-lg cart-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-          {{Cart::getTotalQuantity()}} item(s)</span> </button>
+          <label id="get_cart_totel">0</label> item(s)</span> </button>
         </div>
       </div>
     </div>
@@ -261,7 +261,12 @@
     }); 
 
 });
-    
+    // get_cart_totel
+    $(document).ready(function() {
+
+    	document.getElementById("get_cart_totel").innerHTML = "{{cart_total()}}";
+    }); 
+
 </script>
 <script>
 $('.parallax').parally({offset: -40});

@@ -32,21 +32,24 @@
                 <!-- Demo content-->
                 <div class="container">
                     <div class="row">
-                      @if(session()->get('msg_s'))
-                       <div class="alert alert-success alert-dismissible" id="mydiv">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{ session()->get('msg_s') }} 
-                          </div>
-                      </div>
-                      </section>
-                @endif
 
           </div>
         </div>
         </section>
   
                         <div class="col-lg-10 col-xl-7 mx-auto">
-
+                            @if(session()->get('msg_s'))
+                            <div class="alert alert-success alert-dismissible" id="mydiv">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    {{ session()->get('msg_s') }} 
+                            </div>
+                            @endif
+                            @if(session()->get('error'))
+                             <div class="alert alert-danger alert-dismissible" id="mydiv">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ session()->get('error') }} 
+                              </div>
+                            @endif
                             <h3 class="display-4">ShreeHari </h3>
                             <p class="text-muted mb-4"> Login Your Acount</p>
                             <form method="POST" action="{{ route('login') }}">

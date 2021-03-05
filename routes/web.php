@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart'])->name('add_cart');
     Route::get('/cart_remove/{id}', [App\Http\Controllers\CartController::class, 'cart_remove']);
     Route::post('/cart_update', [App\Http\Controllers\CartController::class, 'cart_update']);
-    Route::post('/Checkout', [App\Http\Controllers\CartController::class, 'Checkout']);
+    Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
     
 });
 

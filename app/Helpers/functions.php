@@ -101,5 +101,13 @@ use App\Models\Products;
 		        return $value;
 		    }
 		}
-
+		if (!function_exists('cart_total')) {
+		    function cart_total()
+		    {
+		    	if (!empty(Auth::user())) {
+		      	 return Cart::session(Auth::user()->id)->getTotalQuantity();
+		    	}
+		    	return 0;
+		    }
+		}
 ?>

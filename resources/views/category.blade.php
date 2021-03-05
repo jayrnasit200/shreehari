@@ -23,15 +23,10 @@
                 <label class="control-label" for="input-sort">Sort By :</label>
                 <div class="sort-inner">
                     <select id="input-sort" class="form-control">
-                        <option value="ASC" selected="selected">Default</option>
-                        <option value="ASC">Name (A - Z)</option>
-                        <option value="DESC">Name (Z - A)</option>
-                        <option value="ASC">Price (Low &gt; High)</option>
-                        <option value="DESC">Price (High &gt; Low)</option>
-                        <option value="DESC">Rating (Highest)</option>
-                        <option value="ASC">Rating (Lowest)</option>
-                        <option value="ASC">Model (A - Z)</option>
-                        <option value="DESC">Model (Z - A)</option>
+                        <option value="" selected="selected">Default</option>
+                        <option value="low_to_high">Price (Low &gt; High)</option>
+                        <option value="high_to_low">Price (High &gt; Low)</option>
+                        <option value="Verified">Verified </option>
                     </select>
                 </div>
             </div>
@@ -74,5 +69,14 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript">
 
+   $("#input-sort").change(function() {
+    // jQuery
+    var selectedVal = $(this).find(':selected').val();
+    var selectedText = $(this).find(':selected').text();
+    console.log(selectedVal);
+    
+});
+</script>
 @endsection

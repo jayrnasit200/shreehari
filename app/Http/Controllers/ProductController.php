@@ -15,11 +15,10 @@ class ProductController extends Controller
     	            ->join('subcategories', 'products.subcategories_id', '=', 'subcategories.id')
     					->select('products.id','model_number','products.name','products.categories_id','subcategories_id','shot_description','description','products.image','price','discount','status','vedor_id','verify','subcategories.name as subcat_name')
     				->get()->first();
-    	$product_id=$data['pro']->id;
-    	$data['pro_img']=ProductsImages::where('product_id',$product_id)->get();
-	    	// echo "<pre>";
-	    	// print_r();
-	    	// exit();
+        $product_id=$data['pro']->id;
+        $data['pro_img']=ProductsImages::where('product_id',$product_id)->get();
+    	$product_sub=$data['pro']->subcategories_id;
+        $data['sub_pro']=Products::where('subcategories_id',$product_sub)->take(10)->get();
     	return view('product')->with($data);
     }
     public function review()

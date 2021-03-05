@@ -59,9 +59,5 @@ class CartController extends Controller
             ));
         return redirect('cart')->with('msg_s', 'Cart Update Successfully.');
     }
-    public function Checkout()
-    {
-        print_r(Request()->all());
-        exit();
-    }
+  
 }
