@@ -14,11 +14,11 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <td class="text-center">Image</td>
-                    <td class="text-left">Product Name</td>
-                    <td class="text-left">Quantity</td>
-                    <td class="text-right">Unit Price</td>
-                    <td class="text-right">Total</td>
+                    <td width="10%" class="text-center">Image</td>
+                    <td width="40%" class="text-left">Product Name</td>
+                    <td width="30%" class="text-left">Quantity</td>
+                    <td width="10%" class="text-right">Unit Price</td>
+                    <td width="10%" class="text-right">Total</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -77,7 +77,7 @@
           <div class="buttons">
             <div class="pull-left"><a class="btn btn-default" href="{{ url('/') }}">Continue Shopping</a></div>
             @if(!$sub_total == 0)
-                <div class="pull-right"><button  name="submit" class="btn btn-primary">Checkout</button></div>
+                <div class="pull-right"><a class="btn btn-primary" href="{{ url('/checkout') }}">Checkout</a></div>
              @endif
           </div>
         </div>

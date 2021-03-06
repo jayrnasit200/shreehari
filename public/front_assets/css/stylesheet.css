@@ -2699,3 +2699,7 @@ div.dioprogress_size_l {
 	max-height: 250px;
 	margin: auto;
 }
+#accordion .disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}

@@ -1,4 +1,7 @@
-@extends('layouts.front_home') @section('content')
+@extends('layouts.front_home')
+
+
+@section('content')
 <div class="container">
     <div class="row">
     @include('product_left_bar')
@@ -9,10 +12,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="false">Step 3: Delivery Details <i class="fa fa-caret-down"></i></a>
+                                    <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-shipping-address" aria-expanded="false">Step 1: Delivery Details <i class="fa fa-caret-down"></i></a>
                                 </h4>
                             </div>
-                            <div id="collapse-shipping-address" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div id="collapse-shipping-address" role="heading" class="panel-collapse  collapse in" aria-expanded="false" style="height: 0px;">
                                 <div class="panel-body">
                                     <form class="form-horizontal">
                                         <div class="radio">
@@ -70,10 +73,10 @@
                                                     <input type="text" class="form-control" id="input-shipping-city" placeholder="City" value="" name="city" />
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <label for="input-shipping-postcode" class="col-sm-2 control-label">Post Code</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="input-shipping-postcode" placeholder="Post Code" value="123456" name="postcode" />
+                                                    <input type="text" class="form-control" id="input-shipping-postcode" placeholder="Post Code" name="postcode" />
                                                 </div>
                                             </div>
                                             <div class="form-group required">
@@ -340,23 +343,8 @@
                                             <div class="form-group required">
                                                 <label for="input-shipping-zone" class="col-sm-2 control-label">Region / State</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" id="input-shipping-zone" name="zone_id">
-                                                        <option value=""> --- Please Select --- </option>
-                                                        <option selected="selected" value="3121">Al Hasakah</option>
-                                                        <option value="3122">Al Ladhiqiyah</option>
-                                                        <option value="3123">Al Qunaytirah</option>
-                                                        <option value="3124">Ar Raqqah</option>
-                                                        <option value="3125">As Suwayda</option>
-                                                        <option value="3126">Dara</option>
-                                                        <option value="3127">Dayr az Zawr</option>
-                                                        <option value="3128">Dimashq</option>
-                                                        <option value="3129">Halab</option>
-                                                        <option value="3130">Hamah</option>
-                                                        <option value="3131">Hims</option>
-                                                        <option value="3132">Idlib</option>
-                                                        <option value="3133">Rif Dimashq</option>
-                                                        <option value="3134">Tartus</option>
-                                                    </select>
+                                                    
+                                                    <input type="text" class="form-control" id="input-shipping-State" placeholder="State" value="" name="Ctate" />
                                                 </div>
                                             </div>
                                         </div>
@@ -381,10 +369,10 @@
                             </div>
                         </div>
                         
-                        <div class="panel panel-default">
+                        <div class="panel panel-default disabledbutton">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="false">Step 5: Payment Method <i class="fa fa-caret-down"></i></a>
+                                    <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method"  aria-expanded="false">Step 2: Payment Method <i class="fa fa-caret-down"></i></a>
                                 </h4>
                             </div>
                             <div id="collapse-payment-method" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
@@ -396,28 +384,27 @@
                                             Cash On Delivery
                                         </label>
                                     </div>
+                                      <div class="radio">
+                                        <label>
+                                            <input type="radio" checked="checked" value="online" name="payment_method" />
+                                            Online Payment 
+                                        </label>
+                                    </div>
                                     <p><strong>Add Comments About Your Order</strong></p>
                                     <p>
                                         <textarea class="form-control" rows="8" name="comment"></textarea>
                                     </p>
-                                    <div class="buttons">
-                                        <div class="pull-right">
-                                            I have read and agree to the <a class="agree" href="#"><b>Terms &amp; Conditions</b></a>
-                                            <input type="checkbox" value="1" name="agree" />
-                                            &nbsp;
-                                            <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-payment-method" value="Continue" />
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default ">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Step 6: Confirm Order <i class="fa fa-caret-down"></i></a>
+                                    <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Step 3: Confirm Order <i class="fa fa-caret-down"></i></a>
                                 </h4>
                             </div>
-                            <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="">
+                            <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse" aria-expanded="true" style="">
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover">
@@ -456,8 +443,12 @@
                                         </table>
                                     </div>
                                     <div class="buttons">
+                                        
                                         <div class="pull-right">
-                                            <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Confirm Order" />
+                                            <label> <input type="checkbox" value="1" name="agree" />&nbsp;
+                                                I have read and agree to the <a class="agree" href="#"><b>Terms &amp; Conditions</b></a>
+                                            &nbsp;</label>
+                                            <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" name="submit" value="Confirm Order" />
                                         </div>
                                     </div>
                                 </div>
