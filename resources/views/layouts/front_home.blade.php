@@ -4,7 +4,8 @@
 <title>{{ config('app.name') }}</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="e-commerce site well design with responsive view." />
+<meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
+<link rel="shortcut icon" href="{{ url('upload/shopping.png') }}" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="{{ url('front_assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
 <link href="{{ url('front_assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
