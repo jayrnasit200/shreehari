@@ -164,8 +164,8 @@
               <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
                 12345 Street name, California<br>
                 USA</span></li>
-              <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">info@localhost.com</a></span></li>
-              <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+              <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">{{ sys_config('from_email_address') }}</a></span></li>
+              <li><i class="fa fa-mobile"></i><span class="phone2">{{ sys_config('phone') }}</span></li>
             </ul>
           </div>
         </div>
