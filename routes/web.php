@@ -38,10 +38,6 @@ Route::get('/config_cache', function() {
 });
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 // Route::get('login2',  [App\Http\Controllers\Auth\LoginController::class, 'index']);
@@ -62,6 +58,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cart_remove/{id}', [App\Http\Controllers\CartController::class, 'cart_remove']);
     Route::post('/cart_update', [App\Http\Controllers\CartController::class, 'cart_update']);
     Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
+    Route::post('/checkout_address_chake', [App\Http\Controllers\CheckoutController::class, 'checkout_address_chake'])->name('checkout_address_chake');
     
 });
 
