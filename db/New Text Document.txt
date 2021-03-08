@@ -1,0 +1,3 @@
+
+RAZOR_KEY=rzp_test_n8Yh6POhdSiL9a
+RAZOR_SECRET=a7Tfy1L8cEYaOmUM6BcTxdEV

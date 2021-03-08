@@ -16,6 +16,7 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->double('amount', 8, 2);
+            $table->string('payment_id')->nullable(); // razorpay payment id
             $table->enum('system',['debit','credit']);
             $table->enum('user',['debit','credit']);
             $table->integer('user_id');
