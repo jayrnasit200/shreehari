@@ -495,8 +495,8 @@
 
 </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <script>
+    
     $("#pay_payment").click(function(e){
         var data = $('#payment').serialize();
         // console.log(data);
@@ -506,12 +506,11 @@
         console.log(payment_method);
         if (payment_method == 'online') {
 
-            // console.log('online');
 
             e.preventDefault();
             var total_amount = total_amount * 100;
             var options = {
-                "key": "{{ env('RAZOR_KEY') }}", // Enter the Key ID generated from the Dashboard
+                "key": "{{ env('RAZOR_KEY','rzp_test_InMkyYjiVS3O8y') }}", // Enter the Key ID generated from the Dashboard
                 "amount": total_amount, // Amount is in currency subunits. Default currency is INR. Hence, 10 refers to 1000 paise
                 "currency": "INR",
                 "name": "{{ sys_config('site_name') }}",

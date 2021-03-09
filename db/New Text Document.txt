@@ -1,3 +1,8 @@
 
 RAZOR_KEY=rzp_test_n8Yh6POhdSiL9a
 RAZOR_SECRET=a7Tfy1L8cEYaOmUM6BcTxdEV
+
+
+
+RAZOR_KEY="rzp_test_InMkyYjiVS3O8y
+RAZOR_SECRET=CfwiIVb9tK0lUfoWXqMZmnWG
