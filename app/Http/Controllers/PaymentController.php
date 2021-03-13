@@ -33,10 +33,8 @@ class PaymentController extends Controller
                 return redirect()->back();
             }
         }
-
-
         $payInfo = [
-                   'payment_id' => null,
+                   'payment_id' => request()->razorpay_payment_id,
                    'user_id' => user_data()->id,
                    'amount' => request()->amount,
                    'system' => 'credit',
@@ -50,7 +48,7 @@ class PaymentController extends Controller
        	$OrderInfo = [
                    'user_id' => user_data()->id,
                    'invoice_number' => $invoice_number,
-                   'user_addresses_id' => request()->amount,
+                   'user_addresses_id' => request()->address,
                    'payment_id' => $payment_id->id,
                    'comments_about_your_order' => request()->comment,
                    'status' => 'padding',
@@ -78,9 +76,13 @@ class PaymentController extends Controller
     }
     public function payment_success()
     {
-    	print_r($_GET['order']);
-    	exit();
-      return view('payment_success');
+    	$invoice_number=$_GET['order'];
+      $data['order']= $order = Order::where('invoice_number',$invoice_number)
+                                       ->leftJoin('payments', 'orders.payment_id', '=', 'payments.id')
+                                       ->get()->first();
+      $data['Address'] = UserAddress::where('id',$order->user_addresses_id)->get()->first();
+      $data['OrdersProduct'] = OrdersProduct::where('orders_id',$order->id)->get()->all();
+      return view('payment_success')->with($data);
     }
     public function payment_cod()
     {
@@ -100,7 +102,7 @@ class PaymentController extends Controller
        	$OrderInfo = [
                    'user_id' => user_data()->id,
                    'invoice_number' => $invoice_number,
-                   'user_addresses_id' => request()->amount,
+                   'user_addresses_id' => request()->address,
                    'payment_id' => $payment_id->id,
                    'comments_about_your_order' => request()->comment,
                    'status' => 'padding',

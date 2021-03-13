@@ -241,6 +241,7 @@
         },
         success:function(response){
           if(response == 1) {
+            document.getElementById("get_cart_totel").innerHTML = "{{cart_total()}}";
             swal({
               title: "Add to Cart",
               text: "You product added to cart successfully",
@@ -248,6 +249,7 @@
               button: "Ok",
               timer: 1000
             });
+            console.log('{{cart_total()}}');
           }else{
             // console.log(response);
              window.location.href = "{{url('/login')}}";

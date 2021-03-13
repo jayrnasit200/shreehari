@@ -137,12 +137,10 @@
                     </p>
                     <div id="product">
                         <div class="form-group">
-                            <label class="control-label qty-label" for="input-quantity">Qty</label>
-                            <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control productpage-qty" />
-                            <input type="hidden" name="product_id" value="48" />
+                           
                             <div class="btn-group">
                                 <!-- <button type="button" data-toggle="tooltip" class="btn btn-default wishlist" title="" data-original-title="Add to Wish List"><i class="fa fa-heart-o"></i></button> -->
-                                <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart">Add to Cart</button>
+                                <button type="button" id=" {{ $pro->id }}" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart-btn ">Add to Cart</button>
                                 <!-- <button type="button" data-toggle="tooltip" class="btn btn-default compare" title="" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button> -->
                             </div>
                         </div>

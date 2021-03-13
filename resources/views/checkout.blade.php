@@ -176,7 +176,7 @@
                                                     <tbody>
                                                         @foreach($product as $val)
                                                             <tr>
-                                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">{{$val->name}}</a></td>
+                                                                <td class="text-left">{{$val->name}}</td>
                                                                 <td class="text-left">{{$val->attributes->model_number}}</td>
                                                                 <td class="text-right">{{$val->quantity}}</td>
                                                                 <td class="text-right">{{$val->price}}</td>
