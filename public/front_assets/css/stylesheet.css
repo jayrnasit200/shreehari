@@ -2703,3 +2703,9 @@ div.dioprogress_size_l {
     pointer-events: none;
     opacity: 0.4;
 }
+#validaten_error{
+	position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}

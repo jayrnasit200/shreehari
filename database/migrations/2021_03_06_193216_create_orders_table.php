@@ -16,10 +16,12 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('invoice_number');
             $table->integer('products_id');
             $table->integer('user_addresses_id');
             $table->integer('vendor_id');
             $table->integer('payment_id');
+            $table->enum('payment',['padding','success']);
             $table->text('comments_about_your_order')->nullable();
             $table->enum('status',['padding','success'])->default('padding');
             $table->enum('vendor_notification',['padding','success'])->default('padding');

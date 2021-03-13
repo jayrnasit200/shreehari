@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
     Route::post('/checkout_address_chake', [App\Http\Controllers\CheckoutController::class, 'checkout_address_chake'])->name('checkout_address_chake');
     Route::post('/Razorpay_payment', [App\Http\Controllers\CheckoutController::class, 'Razorpay_payment'])->name('Razorpay_payment');
+    Route::get('/payment_success', [App\Http\Controllers\CheckoutController::class, 'payment_success']);
     
 });
 

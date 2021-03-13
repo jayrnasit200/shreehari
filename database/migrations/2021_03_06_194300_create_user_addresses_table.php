@@ -15,6 +15,7 @@ class CreateUserAddressesTable extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('fname');
             $table->string('lname');
             $table->string('company')->nullable();
@@ -25,6 +26,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('country');
             $table->string('state');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

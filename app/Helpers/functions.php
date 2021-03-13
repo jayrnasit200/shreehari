@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Banner;
 use App\Models\Products;
+use App\Models\Countries;
 
 		if (!function_exists('referral_code_generate')) {
 		    function referral_code_generate($length_of_string)
@@ -110,4 +111,12 @@ use App\Models\Products;
 		    	return 0;
 		    }
 		}
+		if (!function_exists('get_countries')) {
+		    function get_countries()
+		    {
+		    	return Countries::get()->all();
+		    	
+		    }
+		}
+		
 ?>

@@ -7,6 +7,7 @@
 <meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
 <link rel="shortcut icon" href="{{ url('upload/shopping.png') }}" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{ url('front_assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
 <link href="{{ url('front_assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -74,7 +75,7 @@
       </div>
       <div class="col-sm-4 col-xs-12 header-middle">
         <div class="header-middle-top">
-          <div id="logo"> <a href="{{ url('/') }}"><img src="{{ url(sys_config('logo')) }}" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
+          <div id="logo"> <a href="{{ url('/') }}"><img src="{{ url(sys_config('logo')) }}" title="{{ sys_config('site_name') }}" alt="{{ sys_config('site_name') }}" class="img-responsive" /></a> </div>
         </div>
       </div>
       <div class="col-sm-4 col-xs-12 header-right">
@@ -161,9 +162,9 @@
           <div class="footer-contact">
             <h5 class="contact-title footer-title">Contact Us</h5>
             <ul class="ul-wrapper">
-              <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
+              <!-- <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
                 12345 Street name, California<br>
-                USA</span></li>
+                USA</span></li> -->
               <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">{{ sys_config('from_email_address') }}</a></span></li>
               <li><i class="fa fa-mobile"></i><span class="phone2">{{ sys_config('phone') }}</span></li>
             </ul>
