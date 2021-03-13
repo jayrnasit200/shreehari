@@ -59,8 +59,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/cart_update', [App\Http\Controllers\CartController::class, 'cart_update']);
     Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
     Route::post('/checkout_address_chake', [App\Http\Controllers\CheckoutController::class, 'checkout_address_chake'])->name('checkout_address_chake');
-    Route::post('/Razorpay_payment', [App\Http\Controllers\CheckoutController::class, 'Razorpay_payment'])->name('Razorpay_payment');
-    Route::get('/payment_success', [App\Http\Controllers\CheckoutController::class, 'payment_success']);
+    Route::post('/Razorpay_payment', [App\Http\Controllers\PaymentController::class, 'Razorpay_payment'])->name('Razorpay_payment');
+    Route::get('/payment_success', [App\Http\Controllers\PaymentController::class, 'payment_success']);
+    Route::post('/payment_cod', [App\Http\Controllers\PaymentController::class, 'payment_cod'])->name('payment_cod');
     
 });
 

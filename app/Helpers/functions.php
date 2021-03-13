@@ -14,6 +14,7 @@ use App\Models\Countries;
 		        return substr(str_shuffle($str_result), 0, $length_of_string);
 		    }
 		}
+		
 		if (!function_exists('admin')) {
 		    function admin()
 		    {

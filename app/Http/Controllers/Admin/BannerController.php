@@ -69,7 +69,7 @@ class BannerController extends Controller
    			'image' => $banner_url. $imagename,
    			'status' => request()->type,
    			]);
-       return redirect(admin().'banners')->with('msg_s', 'banners Create Successfully.');
+      $data['user_address'](admin().'banners')->with('msg_s', 'banners Create Successfully.');
     }
     public function delete()
     {

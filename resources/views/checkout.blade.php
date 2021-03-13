@@ -256,11 +256,10 @@
         var address_id = $("input[name=address_id]").val();
         var payment_method = $("input[name=payment_method]:checked").val();
         var total = $("input[name=total_amount]").val();
+        var comment = $("textarea[name=comment]").val();
         var csrf_token = $('meta[name="csrf-token"]').attr('content');
-        console.log(csrf_token);
+
         if (payment_method == 'online') {
-
-
             e.preventDefault();
             var total_amount = total * 100;
             var options = {
@@ -280,13 +279,11 @@
                     $.ajax({
                         type:'POST',
                         url:"{{ route('Razorpay_payment') }}",
-                        data:{razorpay_payment_id:response.razorpay_payment_id,amount:total},
+                        data:{razorpay_payment_id:response.razorpay_payment_id,amount:total,address:address_id,comment:comment},
                         success:function(data){
-                            $('.success-message').text(data.success);
-                            $('.success-alert').fadeIn('slow', function(){
-                               $('.success-alert').delay(5000).fadeOut(); 
-                            });
-                            $('.amount').val('');
+                            // console.log('sdfsdf');
+                            window.location.href = "{{url('/payment_success')}}?order="+data;
+                           
                         }
                     });
                 },
@@ -307,7 +304,23 @@
 
 
         }else{
-            console.log('cod');
+            // console.log('cod');
+
+            $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+             $.ajax({
+                        type:'POST',
+                        url:"{{ route('payment_cod') }}",
+                        data:{amount:total,address:address_id,comment:comment},
+                        success:function(data){
+                            // console.log(data);
+                            window.location.href = "{{url('/payment_success')}}?order="+data;
+
+                        }
+                    });
         }
     });
 </script>

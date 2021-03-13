@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('payment_id')->nullable(); // razorpay payment id
             $table->enum('system',['debit','credit']);
             $table->enum('user',['debit','credit']);
+            $table->enum('status',['padding','success']);
             $table->integer('user_id');
 
             $table->foreign('user_id')->references('id')->on('users');
