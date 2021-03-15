@@ -71,13 +71,7 @@
 </style>
 @endsection @section('content')
 <div class="container">
-    <ul class="breadcrumb">
-        <li>
-            <a href="index-2.html"><i class="fa fa-home"></i></a>
-        </li>
-        <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a>{{ $pro->name }}</a></li>
-    </ul>
+
     <div class="row">
     @include('product_left_bar')
         <div id="content" class="col-sm-9">
@@ -101,7 +95,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <h1 class="productpage-title">{{ $pro->name }}</h1>
+                    <h1 class="productpage-title" style="line-height: 30px;">{{ $pro->name }}</h1>
                         <hr />
                    
                     <div class="d-flex">

@@ -3,12 +3,7 @@
     <div class="row">
     @include('product_left_bar')
     <div id="content" class="col-sm-9">
-        <!-- <h2 class="category-title">Desktops</h2> -->
         <div class="row category-banner">
-            <!-- <div class="col-sm-12 category-image"><img src="image/banners/category-banner.jpg" alt="Desktops" title="Desktops" class="img-thumbnail" /></div> -->
-            <!-- <div class="col-sm-12 category-desc">
-                Lorem ipsum dolomagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
-            </div> -->
         </div>
         <div class="category-page-wrapper">
             <div class="col-md-6 list-grid-wrapper">
@@ -16,11 +11,11 @@
                     <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
                     <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
                 </div>
-                <a href="#" id="compare-total">Product Compare ({{$prod_count}})</a>
             </div>
             <div class="col-md-1 text-right page-wrapper"></div>
             <div class="col-md-2 text-right sort-wrapper">
-                <label class="control-label" for="input-sort">Sort By :</label>
+                <a href="#" id="compare-total">Product Compare ({{$prod_count}})</a>
+                <!-- <label class="control-label" for="input-sort">Sort By :</label>
                 <div class="sort-inner">
                     <select id="input-sort" class="form-control">
                         <option value="" selected="selected">Default</option>
@@ -28,7 +23,7 @@
                         <option value="high_to_low">Price (High &gt; Low)</option>
                         <option value="Verified">Verified </option>
                     </select>
-                </div>
+                </div> -->
             </div>
         </div>
         <br />

@@ -49,5 +49,13 @@ class HomeController extends Controller
         $data['titel']='Dashboard';
         return view('vendor.dashboard')->with($data);
     }
-    
+    public function myaccount()
+    {
+        $data['titel']='Dashboard';
+        return view('myaccount')->with($data);
+    }
+    public function myaccount_update()
+    {
+       
+    }
 }
