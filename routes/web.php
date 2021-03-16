@@ -52,6 +52,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/product/{code}', [App\Http\Controllers\ProductController::class, 'index']);
 Route::post('/product/review', [App\Http\Controllers\ProductController::class, 'review']);
 Route::get('/category/{cat_id}/{subcategory_name}', [App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/term-and-conditions', [App\Http\Controllers\HomeController::class, 'term_and_conditions'])->name('term-and-conditions');
+Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy_policy'])->name('privacy-policy');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [App\Http\Controllers\HomeController::class, 'contact_submit']);
+
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/cart', [App\Http\Controllers\CartController::class, 'index']);
@@ -65,6 +70,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/payment_cod', [App\Http\Controllers\PaymentController::class, 'payment_cod'])->name('payment_cod');
     Route::get('/myaccount', [App\Http\Controllers\HomeController::class, 'myaccount'])->name('myaccount');
     Route::post('/myaccount', [App\Http\Controllers\HomeController::class, 'myaccount_update']);
+    Route::get('/order-history', [App\Http\Controllers\OrderController::class, 'index']);
+    Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'change_password']);
+    Route::post('/change_password', [App\Http\Controllers\HomeController::class, 'change_password_submit']);
     
 });
 

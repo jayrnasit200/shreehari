@@ -4,8 +4,8 @@
             <div class="category_block">
                 <ul class="box-category treeview-list treeview">
                       <li><a class="activSub" href="{{ url('/myaccount') }}">My Account</a></li>
-                      <li><a class="activSub" href="#">Change Password</a></li>
-                      <li><a class="activSub" href="#">Order History</a></li>
+                      <li><a class="activSub" href="{{url('/change-password')}}">Change Password</a></li>
+                      <li><a class="activSub" href="{{url('/order-history')}}">Order History</a></li>
                       <li><a class="activSub" href="{{ url('/cart') }}">View Cart</a></li>
                        
                       </ul>

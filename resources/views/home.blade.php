@@ -11,16 +11,7 @@
 </div>
 </div>
 <div class="container">
-  <div class="row">  
-    <div id="brand_carouse" class="owl-carousel brand-logo">
-        
-        @foreach(get_banner_by_name('logo') as $val)
-        <div class="item text-center"> <a href="#"><img src="{{ url($val->image) }}" alt="Disney" class="img-responsive" /></a> </div>
-        @endforeach
-       
-      </div>
- 
-  </div>
+
   <div class="row">
     <div id="content" class="col-sm-12">
       <div class="customtab">
@@ -86,36 +77,9 @@
           </div>
         </div>
         <!-- tab-special-->
-    <!--     <div id="tab-bestseller" class="tab-content">
-          <div class="box">
-            <div id="bestseller-slidertab" class="row owl-carousel product-slider">
-                @foreach($best as $val)
-                  <div class="item">
-                    <div class="product-thumb transition">
-                      <div class="image product-imageblock"> <a href="{{ url('/product',$val->model_number) }}"><img src="{{ url($val->image) }}"  class=" pro_img img-responsive" /> </a>
-                        <div class="button-group">
-                          <button type="button" id="{{$val->id}}" class="addtocart-btn" >Add To Cart</button>
-                        </div>
-                      </div>
-                      <div class="caption product-detail">
-                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">{{ $val->name }}</a></h4>
-                        <p class="price product-price">{{$val->price}} <span class="price-old">{{$val->discount}}</span></p>
-                        
-                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-                      </div>
-                      <div class="button-group">
-                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List" ><i class="fa fa-heart-o"></i></button>
-                        <button type="button" class="addtocart-btn" >Add To Cart</button>
-                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product" ><i class="fa fa-exchange"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                @endforeach
-            </div>
-          </div>
-        </div> -->
+
       </div>
-      <div class="parallax">
+<!--       <div class="parallax">
         <ul id="testimonial" class="row owl-carousel product-slider">
           <li class="item">
             <div class="panel-default">
@@ -152,7 +116,15 @@
             </div>
           </li>
         </ul>
+      </div> -->
+    <div id="brand_carouse" class="owl-carousel brand-logo">
+        
+        @foreach(get_banner_by_name('logo') as $val)
+        <div class="item text-center"> <a href="#"><img src="{{ url($val->image) }}" alt="Disney" class="img-responsive" /></a> </div>
+        @endforeach
+       
       </div>
+ 
        @foreach(cat_for_show_home() as $val)
       <h3 class="productblock-title">{{$val->cat_name}},{{$val->name}}</h3>
             <div class="box">
@@ -191,8 +163,8 @@
       
     </div>
   </div>
-  <div id="subbanner4" class="banner" >
+<!--   <div id="subbanner4" class="banner" >
   <div class="item"> <a href="#"><img src="{{ url('front_assets/image/banners/subbanner4.jpg') }}" alt="Sub Banner4" class="img-responsive" /></a> </div>
-</div>  
+</div>  --> 
 </div>
 @endsection

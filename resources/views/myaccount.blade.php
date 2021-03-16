@@ -7,7 +7,12 @@
     <div class="row">
     @include('Account_left_bar')
        <div class="col-sm-9" id="content">
-            
+              @if(session()->get('msg_s'))
+         <div class="alert alert-success alert-dismissible" id="msg">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  {{ session()->get('msg_s') }} 
+            </div>
+  @endif
             <form class="form-horizontal" enctype="multipart/form-data" method="post" action="{{ url('/myaccount') }}">@csrf
                 <fieldset id="account">
                     <legend>Your Personal Details</legend>

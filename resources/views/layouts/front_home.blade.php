@@ -42,7 +42,7 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
                         <li><a href="{{ route('login') }}">Login</a></li>
                     @else
-                        <li><a href="login.html">My Account</a></li>
+                        <li><a href="{{url('/myaccount')}}">My Account</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -103,7 +103,8 @@
                 @endforeach
             </li>
             <!-- <li><a href="about-us.html" >About us</a></li> -->
-            <li><a href="contact.html" >Contact Us</a> </li>
+            <li><a href="{{url('/contact')}}" >Contact Us</a> </li>
+            <li><a href="{{ url('/privacy-policy') }}" >Privacy Policy</a> </li>
           </ul>
         </div>
       </div>
@@ -124,37 +125,28 @@
       <div class="col-sm-3 footer-block">
         <h5 class="footer-title">Information</h5>
         <ul class="list-unstyled ul-wrapper">
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="checkout.html">Delivery Information</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Returns</a></li>
-          <li><a href="#">Site Map</a></li>
-          <li><a href="#">Wish List</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3 footer-block">
-        <h5 class="footer-title">Why Choose</h5>
-        <ul class="list-unstyled ul-wrapper">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="#">Product Recall</a></li>
-          <li><a href="#">Gift Vouchers</a></li>
-          <li><a href="#">Returns and Exchanges</a></li>
-          <li><a href="#">Shipping Options</a></li>
-          <li><a href="#">Help & FAQs</a></li>
-          <li><a href="#">Sale Only Today</a></li>
+          <!-- <li><a href="about-us.html">About Us</a></li> -->
+          <li><a href="{{url('/privacy-policy')}}">Privacy Policy</a></li>
+          <li><a href="{{url('/term-and-conditions')}}">Terms &amp; Conditions</a></li>
         </ul>
       </div>
       <div class="col-sm-3 footer-block">
         <h5 class="footer-title">My Account</h5>
         <ul class="list-unstyled ul-wrapper">
-          <li><a href="#">Sign in</a></li>
-          <li><a href="gift.html">Gift Vouchers</a></li>
-          <li><a href="affiliate.html">Affiliates</a></li>
-          <li><a href="#">View Cart</a></li>
-          <li><a href="#">Checkout</a></li>
-          <li><a href="#">Track My Order</a></li>
-          <li><a href="#">Help</a></li>
+          <li><a href="{{url('/myaccount')}}">My Account</a></li>
+          <li><a href="{{url('/change-password')}}">Change Password</a></li>
+          <li><a href="{{url('order-history')}}">Order History</a></li>
+          <li><a href="{{url('/cart')}}">View Cart</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 footer-block">
+        <h5 class="footer-title">Pages</h5>
+        <ul class="list-unstyled ul-wrapper">
+          <li><a href="{{ url('/register') }}">Sign UP</a></li>
+          <li><a href="{{ url('/vendor/register') }}">Vendor Sign UP</a></li>
+          <li><a href="{{ url('/login') }}">Sign IN</a></li>
+          <li><a href="#">Contact Us</a></li>
+          
         </ul>
       </div>
       <div class="col-sm-3 footer-block">
