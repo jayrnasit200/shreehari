@@ -79,7 +79,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::group(['middleware' => ['auth','vendor'],'prefix' => 'vendor'], function() {
 
-Route::get('/vendor/profile', [App\Http\Controllers\vendor\VendorController::class, 'profile']);
+Route::get('/profile', [App\Http\Controllers\vendor\VendorController::class, 'profile']);
+Route::post('/profile_update', [App\Http\Controllers\vendor\VendorController::class, 'profile_update']);
 
 Route::get('vendor', [App\Http\Controllers\HomeController::class, 'vendor'])->name('vendor');
 
@@ -95,6 +96,10 @@ Route::post('/product/img/add', [App\Http\Controllers\vendor\ProductController::
 Route::get('/subcategories/{id}', [App\Http\Controllers\vendor\ProductController::class, 'subcategories']);
 // Route::get('/sub_types/{id}', [App\Http\Controllers\vendor\ProductController::class, 'sub_types']);
 Route::get('/product_data', [App\Http\Controllers\vendor\ProductController::class, 'product_data'])->name('product_data');
+Route::get('/order', [App\Http\Controllers\vendor\OrderController::class, 'index']);
+Route::get('/order_data', [App\Http\Controllers\vendor\OrderController::class, 'order_data'])->name('order_data');
+Route::get('/order_status_update/{id}', [App\Http\Controllers\vendor\OrderController::class, 'order_status_update']);
+
 
 });
 

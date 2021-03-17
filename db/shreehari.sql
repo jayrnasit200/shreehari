@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 15, 2021 at 03:39 PM
+-- Generation Time: Mar 17, 2021 at 11:01 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.4.0
 
@@ -85,6 +85,31 @@ INSERT INTO `categories` (`id`, `name`, `image`, `created_at`, `updated_at`) VAL
 (3, 'Baby & Kids', NULL, '2021-01-24 00:00:44', '2021-01-24 00:00:44'),
 (4, 'Electronics', NULL, '2021-01-24 00:01:20', '2021-01-24 00:01:20'),
 (5, 'Home & Furniture', NULL, '2021-01-24 00:01:50', '2021-01-24 00:01:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+CREATE TABLE IF NOT EXISTS `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `massage` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('padding','success') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'padding',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `massage`, `email`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'test demo', 'jayrbasit12345@gmail.com', 'testing', 'padding', '2021-03-16 05:31:51', '2021-03-16 05:31:51');
 
 -- --------------------------------------------------------
 
@@ -382,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -405,7 +430,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (22, '2021_03_06_194300_create_user_addresses_table', 9),
 (24, '2021_03_06_203731_create_payments_table', 11),
 (20, '2021_03_10_081807_create_countries_table', 7),
-(27, '2021_03_13_061715_create_orders_products_table', 14);
+(29, '2021_03_13_061715_create_orders_products_table', 16),
+(28, '2021_03_16_104906_create_contacts_table', 15);
 
 -- --------------------------------------------------------
 
@@ -428,7 +454,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `orders_user_id_foreign` (`user_id`),
   KEY `orders_user_addresses_id_foreign` (`user_addresses_id`),
   KEY `orders_payment_id_foreign` (`payment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `invoice_number`, `user_addresses_id`, `payment_id`, `comments_about_your_order`, `status`, `created_at`, `updated_at`) VALUES
+(1, 3, 'SH-8inepqshbo', 2, 1, NULL, 'padding', '2021-03-15 23:02:55', '2021-03-15 23:02:55'),
+(2, 3, 'SH-ctrp8bixzv', 2, 2, NULL, 'padding', '2021-03-15 23:03:38', '2021-03-15 23:03:38');
 
 -- --------------------------------------------------------
 
@@ -443,6 +477,7 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   `products_id` int(11) NOT NULL,
   `vendor_id` int(11) NOT NULL,
   `vendor_notification` enum('padding','success') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'padding',
+  `packing` enum('padding','success') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'padding',
   `qty` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -450,7 +485,15 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   KEY `orders_products_vendor_id_foreign` (`vendor_id`),
   KEY `orders_products_products_id_foreign` (`products_id`),
   KEY `orders_products_orders_id_foreign` (`orders_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders_products`
+--
+
+INSERT INTO `orders_products` (`id`, `orders_id`, `products_id`, `vendor_id`, `vendor_notification`, `packing`, `qty`, `created_at`, `updated_at`) VALUES
+(1, 1, 22, 2, 'success', 'success', '1', '2021-03-15 17:32:55', '2021-03-17 02:56:49'),
+(2, 2, 128, 2, 'success', 'padding', '1', '2021-03-15 17:33:38', '2021-03-17 02:56:49');
 
 -- --------------------------------------------------------
 
@@ -493,7 +536,15 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `payments_user_id_foreign` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `amount`, `payment_id`, `system`, `user`, `status`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 649.00, 'pay_GnC6yR0CTcKJEp', 'credit', 'debit', 'success', 3, '2021-03-15 23:02:55', '2021-03-15 23:02:55'),
+(2, 1649.00, NULL, 'credit', 'debit', 'padding', 3, '2021-03-15 23:03:38', '2021-03-15 23:03:38');
 
 -- --------------------------------------------------------
 
@@ -1172,8 +1223,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@shreehari.net', NULL, NULL, '1', '$2y$10$C1Ta/z380jIdZnR30E7a8ecPhk99vD8AtB3hMNsk9SBl1YOnN2p2C', NULL, NULL, NULL),
-(2, 'vendor', 'vendor@shreehari.net', NULL, NULL, '2', '$2y$10$0N4TDmNhfeXoSN4hQB2DYun6zu6by816aNqcWFQtOOn1IBNiefCrS', NULL, NULL, NULL),
-(3, 'User', 'user@shreehari.net', NULL, NULL, '3', '$2y$10$0QTv38q1fevnElKHTm8wE.eF/s/brF/4Wpm6te4Xi2F.Q3pLk9y5i', NULL, NULL, NULL),
+(2, 'vendor_test', 'vendor@shreehari.net', '1234567890', NULL, '2', '$2y$10$0N4TDmNhfeXoSN4hQB2DYun6zu6by816aNqcWFQtOOn1IBNiefCrS', NULL, NULL, '2021-03-17 05:26:03'),
+(3, 'User', 'user@shreehari.net', NULL, NULL, '3', '$2y$10$qFLSCJdJ4hD7xOd6rN6jl.RK4KNyaWvHXgDNRD2IaAALH6CO2Drq6', NULL, NULL, '2021-03-15 23:59:21'),
 (4, 'kapadiya Nikunj', 'kapadiyanikunj127@gmail.com', NULL, NULL, '2', '$2y$10$rTE4ymuecrLQKfcpOK3mI.TApEs0lyb3etkVPFbUbku.MXxgqBTjC', NULL, '2021-01-31 16:54:48', '2021-01-31 16:54:48'),
 (5, 'Abhishek Dudhat', 'dudhatabhishek8@gmail.com', NULL, NULL, '2', '$2y$10$eYJT6ZTnUyhQvss6RRjg0.A82GMGDRN0hb/L9kxwF4/YM5MSsGC5e', NULL, '2021-01-31 16:57:58', '2021-01-31 16:57:58'),
 (6, 'mukund rathore', 'mukundrathore12345@gmail.com', NULL, NULL, '2', '$2y$10$BSDsSP1ILGaNh7d5E4tmO.UgZUb9tmZVwF3vtXZowcOJoj1xWYezm', NULL, '2021-02-04 17:41:26', '2021-02-04 17:41:26');
@@ -1238,7 +1289,7 @@ CREATE TABLE IF NOT EXISTS `vendors` (
 --
 
 INSERT INTO `vendors` (`id`, `logo`, `bg_image`, `name`, `about`, `email`, `phone`, `address`, `status`, `created_at`, `updated_at`) VALUES
-(2, NULL, NULL, 'test', NULL, 'vendor@shreehari.net', NULL, NULL, 'enable', '2020-12-15 10:46:59', '2020-12-15 10:46:59'),
+(2, 'upload/product//161597856148.jpg', NULL, 'vendor_test', 'test', 'vendor@shreehari.net', '1234567890', 'test demo', 'enable', '2020-12-15 10:46:59', '2021-03-17 05:26:03'),
 (3, NULL, NULL, 'kapadiya Nikunj', NULL, 'kapadiyanikunj127@gmail.com', NULL, NULL, 'enable', '2021-01-31 16:54:48', '2021-01-31 16:54:48'),
 (4, NULL, NULL, 'Abhishek Dudhat', NULL, 'dudhatabhishek8@gmail.com', NULL, NULL, 'enable', '2021-01-31 16:57:58', '2021-01-31 16:57:58'),
 (5, NULL, NULL, 'mukund rathore', NULL, 'mukundrathore12345@gmail.com', NULL, NULL, 'enable', '2021-02-04 17:41:26', '2021-02-04 17:41:26');
@@ -1263,7 +1314,7 @@ CREATE TABLE IF NOT EXISTS `web_configs` (
 
 INSERT INTO `web_configs` (`id`, `option`, `value`) VALUES
 (1, 'site_name', 'sheehari'),
-(2, 'from_email_address', 'sheehari2020@gmail.com'),
+(2, 'from_email_address', 'info@shreehari.net'),
 (3, 'copyright_text', 'Copyright © sheehari services.'),
 (4, 'logo', 'upload/shopping.png'),
 (5, 'phone', '(+91) 000-1233'),

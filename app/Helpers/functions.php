@@ -6,6 +6,7 @@ use App\Models\Subcategory;
 use App\Models\Banner;
 use App\Models\Products;
 use App\Models\Countries;
+use App\Models\OrdersProduct;
 
 		if (!function_exists('referral_code_generate')) {
 		    function referral_code_generate($length_of_string)
@@ -27,7 +28,13 @@ use App\Models\Countries;
 		        return 'vendor/';
 		    }
 		}
-
+		if (!function_exists('vendor_id_to_order_count')) {
+		    function vendor_id_to_order_count($id)
+		    {
+		       $order = OrdersProduct::where('vendor_id',$id)->where('vendor_notification','padding')->count();
+		       return $order;
+		    }
+		}
 		if (!function_exists('sys_config_all')) {
 		    function sys_config_all()
 		    {

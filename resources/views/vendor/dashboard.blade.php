@@ -14,65 +14,85 @@
 			</div>
 		@endif
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
 
-                <p>New Orders</p>
+          <div class="col-lg-3 col-6">
+           <div class="info-box mb-3 bg-primary">
+              <span class="info-box-icon"><i class="ion ion-person-add"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Padding Orders</span>
+                <span class="info-box-number">{{ $orders_packing }}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+           <div class="col-lg-3 col-6">
+           <div class="info-box mb-3 bg-success">
+              <span class="info-box-icon"><i class="ion ion-bag"></i></span>
 
-                <p>Bounce Rate</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Orders</span>
+                <span class="info-box-number">{{ $orders }}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
-          <div class="col-lg-3 col-6">
+           <div class="col-lg-3 col-6">
+           <div class="info-box mb-3 bg-warning">
+              <span class="info-box-icon"><i class="fas fa-users"></i></span>
 
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Happy Customers</span>
+                <span class="info-box-number">{{$Happy_Customers}}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
-          <div class="col-lg-3 col-6">
+           <div class="col-lg-3 col-6">
+           <div class="info-box mb-3 bg-info">
+              <span class="info-box-icon"><i class="fas fa-boxes"></i></span>
 
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Products</span>
+                <span class="info-box-number">{{$Products}}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
+  
 
         </div>
+        <div class="row">
+          <div class="col">
+                 <!-- BAR CHART -->
+                      <div class="card">
+                        <div class="card-header">
+                          <h3 class="card-title">Bar Chart</h3>
 
+                          <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="chart">
+                            <canvas id="barChart" style="height:230px; min-height:230px"></canvas>
+                          </div>
+                        </div>
+                        <!-- /.card-body -->
+                      </div>
+                      <!-- /.card -->
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
     </section>
+@endsection
+@section('js')
+
 @endsection

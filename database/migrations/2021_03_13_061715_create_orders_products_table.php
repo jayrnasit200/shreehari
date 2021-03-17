@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -19,6 +23,7 @@ class CreateOrdersProductsTable extends Migration
             $table->integer('products_id');
             $table->integer('vendor_id');
             $table->enum('vendor_notification',['padding','success'])->default('padding');
+            $table->enum('packing',['padding','success'])->default('padding');
             $table->string('qty');
             $table->foreign('vendor_id')->references('id')->on('users');
             $table->foreign('products_id')->references('id')->on('products');

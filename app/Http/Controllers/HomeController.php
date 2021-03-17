@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Products;
 use App\Models\Contact;
+use App\Models\OrdersProduct;
 use App\Rules\MatchOldPassword;
 use Auth;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -49,8 +50,12 @@ class HomeController extends Controller
     }
     public function vendor()
     {
+        $data['Happy_Customers']= OrdersProduct::where('vendor_id',user_data()->id)->join('orders', 'orders_products.orders_id', '=', 'orders.id')->groupBy('orders.user_id')->count();
+        $data['orders']= OrdersProduct::where('vendor_id',user_data()->id)->count();
+        $data['Products']= Products::where('vedor_id',user_data()->id)->count();
+        $data['orders_packing']= OrdersProduct::where('vendor_id',user_data()->id)->where('packing','padding')->count();
         $data['titel']='Dashboard';
-        return view('vendor.dashboard')->with($data);
+        return view('vendor.dashboard')->with($data) ;
     }
     public function myaccount()
     {
