@@ -28,12 +28,16 @@ class SubcategoriesController extends Controller
     	 return datatables($data)
           ->addColumn('action', function ($row) {
                    	$delete_action=url(admin()."categories/subcategories/delete");
-                    return' <a href="'.url(admin().'categories/subcategories/edit').'/'.$row->id.'" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                          <a onClick="confirmDelete(\''.$row->id.'\',\'subcategories\',\''.$delete_action.'\')" class="btn text-white btn-danger"><i class="far fa-trash-alt"></i></a>';
-
-                   // return' <a href="'.url('/banners/edit').'/'.$row->id.'" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                   //  <a href="'.url('/banners/edit').'/'.$row->id.'" class="btn btn-dark"><i class="fas fa-eye"></i></a>
-                   //        <a onClick="confirmDelete(\''.$row->id.'\',\'Banners\',\''.$delete_action.'\')" class="btn text-white btn-danger"><i class="far fa-trash-alt"></i></a>';
+                    if ($row->Show_home  == 'yes') {
+                        return' <a href="'.url(admin().'categories/subcategories/edit').'/'.$row->id.'" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                          <a onClick="confirmDelete(\''.$row->id.'\',\'subcategories\',\''.$delete_action.'\')" class="btn text-white btn-danger"><i class="far fa-trash-alt"></i></a>
+                          <a href="'.url(admin().'categories/subcategories/show_hme').'/'.$row->id.'/'.$row->Show_home.'" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>';
+                    }else{
+                        return' <a href="'.url(admin().'categories/subcategories/edit').'/'.$row->id.'" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                          <a onClick="confirmDelete(\''.$row->id.'\',\'subcategories\',\''.$delete_action.'\')" class="btn text-white btn-danger"><i class="far fa-trash-alt"></i></a>
+                          <a href="'.url(admin().'categories/subcategories/show_hme').'/'.$row->id.'/'.$row->Show_home.'" class="btn btn-warning"><i class="fa fa-eye" aria-hidden="true"></i></a>';
+                        }
+                  
                                 
                 })
                 // ->addColumn('image', function ($row) {
@@ -91,5 +95,17 @@ class SubcategoriesController extends Controller
    			'name' => request()->name,
    			]);
        return redirect(url(admin().'categories/subcategories',$categories_id))->with('msg_s', 'Subcategories update Successfully.');
+    }
+    public function show_hme($id,$status)
+    {
+        if ($status == 'yes') {
+            $data='no';
+        }else{
+            $data='yes';
+        }
+        Subcategory::where('id',$id)->update([
+            'Show_home' => $data,
+            ]);
+        return redirect(url()->previous())->with('msg_s', 'Subcategories update Successfully.');
     }
 }

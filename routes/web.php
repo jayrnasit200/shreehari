@@ -126,6 +126,7 @@ Route::post('/categories/subcategories/add', [App\Http\Controllers\Admin\Subcate
 Route::post('/categories/subcategories/delete', [App\Http\Controllers\Admin\SubcategoriesController::class, 'delete']);
 Route::get('/categories/subcategories/edit/{id}', [App\Http\Controllers\Admin\SubcategoriesController::class, 'edit']);
 Route::post('/categories/subcategories/update', [App\Http\Controllers\Admin\SubcategoriesController::class, 'update']);
+Route::get('/categories/subcategories/show_hme/{id}/{status}', [App\Http\Controllers\Admin\SubcategoriesController::class, 'show_hme']);
 
 Route::get('/product', [App\Http\Controllers\Admin\ProductsController::class, 'index']);
 Route::get('/all_product', [App\Http\Controllers\Admin\ProductsController::class, 'all_product'])->name('all_product');
@@ -151,4 +152,9 @@ Route::post('/banners/delete', [App\Http\Controllers\Admin\BannerController::cla
 Route::get('/banners/edit/{id}', [App\Http\Controllers\Admin\BannerController::class, 'edit']);
 Route::post('/banners/update', [App\Http\Controllers\Admin\BannerController::class, 'update']);
 
+Route::get('/order', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+Route::get('/order_data', [App\Http\Controllers\Admin\OrderController::class, 'order_data'])->name('order_all_data');
+
+Route::get('/setting', [App\Http\Controllers\Admin\SettingController::class, 'index']);
+Route::Post('/setting', [App\Http\Controllers\Admin\SettingController::class, 'setting_update']);
 });

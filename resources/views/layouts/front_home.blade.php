@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<title>{{ config('app.name') }}</title>
+<title>{{ sys_config('site_name') }}</title>
+<meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
+<link rel="shortcut icon" href="{{ url(sys_config('logo')) }}" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
-<link rel="shortcut icon" href="{{ url('upload/shopping.png') }}" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{ url('front_assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />

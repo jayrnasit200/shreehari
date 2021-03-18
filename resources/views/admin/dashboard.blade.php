@@ -8,64 +8,107 @@
 
         <div class="row">
           <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
+            <div class="info-box mb-3 bg-primary">
+              <span class="info-box-icon"><i class="fas fa-boxes"></i></span>
 
-                <p>New Orders</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Product</span>
+                <span class="info-box-number">{{$total_products}}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
           <div class="col-lg-3 col-6">
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <div class="info-box mb-3 bg-success">
+              <span class="info-box-icon"><i class="fas fa-user-friends"></i></span>
 
-                <p>Bounce Rate</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Users</span>
+                <span class="info-box-number">{{$total_users}}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-6">
-
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
           <div class="col-lg-3 col-6">
 
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
+            <div class="info-box mb-3 bg-warning">
+              <span class="info-box-icon"><i class="fas fa-user-tag"></i></span>
 
-                <p>Unique Visitors</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Vendors</span>
+                <span class="info-box-number">{{$total_vendors}}</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+
+            <div class="info-box mb-3 bg-danger">
+              <span class="info-box-icon"><i class="ion ion-bag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Orders</span>
+                <span class="info-box-number">{{$total_orders}}</span>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.info-box-content -->
             </div>
           </div>
 
         </div>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="info-box mb-3 bg-default">
+              <span class="info-box-icon"><i class="fas fa-hand-holding-usd"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text">Total Sell </span>
+                <span class="info-box-number">{{$total_sell}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="info-box mb-3 bg-secondary">
+              <span class="info-box-icon"><i class="ion ion-bag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Reviews</span>
+                <span class="info-box-number">{{$total_reviews}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+
+            <div class="info-box mb-3 bg-dark">
+              <span class="info-box-icon"><i class="fa fa-list-alt"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Category</span>
+                <span class="info-box-number">{{$total_Category}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+
+            <div class="info-box mb-3 bg-info">
+              <span class="info-box-icon"><i class="fas fa-align-left"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Subcategory</span>
+                <span class="info-box-number">{{$total_Subcategory}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </div>
+
+        </div>
     </section>
 @endsection

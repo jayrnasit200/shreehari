@@ -4,6 +4,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>{{ sys_config('site_name') }}</title>
+<meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
+<link rel="shortcut icon" href="{{ sys_config('logo') }}" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ config('app.name', 'Laravel') }}</title>
   <!-- Tell the browser to be responsive to screen width -->

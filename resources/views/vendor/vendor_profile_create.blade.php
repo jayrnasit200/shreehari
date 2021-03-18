@@ -18,23 +18,25 @@
 
                         
                          <div class="form-group">
-                              <label for="bg_img">
+                              <label for="bg_img" class="w-100">
                                 @if(empty($vendor_data->bg_image))
                                 <img src="https://images.squarespace-cdn.com/content/v1/5915dfadebbd1aff24f9f8dd/1496129155556-QFK0OAXPXW1KF0ROW5Z4/ke17ZwdGBToddI8pDm48kGuAixuZlvsWkJmUBdYWNOAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnA_0Z5YWskxMQOUSKAL4vXFQkDh2RSyVTTRfuoxWj5kB4vrNkBXX0tbCV6bxMI0jYQ/bg-default.jpg?format=2500w" class="img-fluid">
                                 @else
-                                 <img src="{{url($vendor_data->bg_image)}}" class="img-fluid">
+                                 <img src="{{url($vendor_data->bg_image)}}" class="img-fluid w-100">
                                 @endif
                             </label>
+                            <input type="hidden" name="bg_img_old"  value="{{$vendor_data->bg_image}}" >
                             <input type="file" name="bg_img" class="d-none" id="bg_img" >
                             <div class="text-center">
                                 <label for="pro_img">
                                      @if(empty($vendor_data->logo))
                                         <img src="https://www.stockvault.net//data/2018/08/28/254042/thumb16.jpg" for="profile_pci" width="200" class="img-fluid rounded-circle img-thumbnail">
                                        @else
-                                         <img src="{{url($vendor_data->logo)}}" width="100" height="100" class="img-fluid rounded-circle img-thumbnail">
+                                         <img src="{{url($vendor_data->logo)}}" width="100" height="100" class="img-fluid rounded-circle img-thumbnail" style=" width: 200px; height: 200px;">
                                         @endif
                                  </label>
                             <input type="file" name="profile_pci" class="d-none" id="pro_img">
+                            <input type="hidden" name="profile_pci" value="{{ $vendor_data->logo}}">
                             </div>
                         </div>
 

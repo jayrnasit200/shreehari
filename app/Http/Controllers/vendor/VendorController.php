@@ -61,7 +61,7 @@ class VendorController extends Controller
             'address' => 'required',
             'name' => 'required',
         ]);
-        $bg_img=null;
+        $bg_img=request()->bg_img_old;
         if (request()->bg_img) {
             $file=request()->bg_img;
              $imagename=time().rand(1,100).'.'.$file->extension();
@@ -69,7 +69,7 @@ class VendorController extends Controller
                 $file->move($banner_url, $imagename);
                 $bg_img = $banner_url.'/'.$imagename;
         }
-        $profile_pci=null;
+        $profile_pci=request()->bg_img_old;
         if (request()->profile_pci) {
              $files=request()->profile_pci;
              $imagename=time().rand(1,100).'.'.$files->extension();

@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Products;
 use App\Models\Contact;
+use App\Models\Order;
+use App\Models\Payment;
+use App\Models\ProductReviewImage;
+use App\Models\Category;
+use App\Models\Subcategory;
+
 use App\Models\OrdersProduct;
 use App\Rules\MatchOldPassword;
 use Auth;
@@ -46,6 +52,15 @@ class HomeController extends Controller
     public function admin()
     {
         $data['titel']='Dashboard Admin';
+        $data['total_products']= Products::count();
+        $data['total_users']= User::where('role','3')->count();
+        $data['total_vendors']= User::where('role','2')->count();
+        $data['total_orders']= Order::count();
+        $data['total_sell']= Payment::sum('amount');
+        $data['total_reviews']= ProductReviewImage::count();
+        $data['total_Category']= Category::count();
+        $data['total_Subcategory']= Subcategory::count();
+
         return view('admin.dashboard')->with($data);
     }
     public function vendor()
