@@ -157,4 +157,12 @@ Route::get('/order_data', [App\Http\Controllers\Admin\OrderController::class, 'o
 
 Route::get('/setting', [App\Http\Controllers\Admin\SettingController::class, 'index']);
 Route::Post('/setting', [App\Http\Controllers\Admin\SettingController::class, 'setting_update']);
+
+Route::get('/users', [App\Http\Controllers\Admin\UsersController::class, 'index']);
+Route::get('/users_data', [App\Http\Controllers\Admin\UsersController::class, 'users_data']);
+Route::post('/users/delete', [App\Http\Controllers\Admin\UsersController::class, 'delete']);
+
+Route::get('/vendors', [App\Http\Controllers\Admin\VendorsController::class, 'index']);
+Route::get('/vendors_data', [App\Http\Controllers\Admin\VendorsController::class, 'vendors_data']);
+Route::post('/vendors/delete', [App\Http\Controllers\Admin\VendorsController::class, 'delete']);
 });

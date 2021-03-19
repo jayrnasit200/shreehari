@@ -108,8 +108,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview {{ (request()->segment(1) == 'admin') ? 'menu-open' : '' }}">
-            <a href="{{ url('admin') }}" class="nav-link {{ (request()->segment(1) == 'admin') ? 'active' : '' }}">
+          <li class="nav-item has-treeview {{ (request()->segment(1) == 'admin' && request()->segment(2) == '') ? 'menu-open' : '' }}">
+            <a href="{{ url('admin') }}" class="nav-link {{ (request()->segment(1) == 'admin' && request()->segment(2) == '') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -195,8 +195,8 @@
             </a>
              
           </li>
-          <li class="nav-item has-treeview {{ (request()->segment(3) == 'profile') ? 'menu-open' : '' }}">
-            <a href="{{ url(admin().'profile') }}" class="nav-link {{ (request()->segment(2) == 'profile') ? 'active' : '' }} ">
+          <li class="nav-item has-treeview {{ (request()->segment(3) == 'vendors') ? 'menu-open' : '' }}">
+            <a href="{{ url(admin().'vendors') }}" class="nav-link {{ (request()->segment(2) == 'vendors') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-handshake"></i>
               <p>
                 Vendors 
@@ -206,8 +206,8 @@
             </a>
              
           </li>
-          <li class="nav-item has-treeview {{ (request()->segment(3) == 'profile') ? 'menu-open' : '' }}">
-            <a href="{{ url(admin().'profile') }}" class="nav-link {{ (request()->segment(2) == 'profile') ? 'active' : '' }} ">
+          <li class="nav-item has-treeview {{ (request()->segment(3) == 'users') ? 'menu-open' : '' }}">
+            <a href="{{ url(admin().'users') }}" class="nav-link {{ (request()->segment(2) == 'users') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users 

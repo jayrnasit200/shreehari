@@ -23,6 +23,15 @@
 <script src="{{ url('front_assets/javascript/common.js') }}" type="text/javascript"></script>
 <script src="{{ url('front_assets/javascript/global.js') }}" type="text/javascript"></script>
 <script src="{{ url('front_assets/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3X6R38RRB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E3X6R38RRB');
+</script>
 </head>
 <body>
 <div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="{{ url('front_assets/image/loader.gif') }}"  alt="#"/></div>
@@ -53,7 +62,7 @@
                 <!-- <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li> -->
               </ul>
                 <div class="search-box">
-              <form method="post" action="{{'search'}}">
+              <form method="get" action="{{'search'}}">
                   <input class="input-text" placeholder="Search By Products.." type="text">
                   <button class="search-btn"><i class="fa fa-search"></i></button>
               </form>
@@ -168,13 +177,13 @@
       <div class="footer-top-cms">
         <div class="col-sm-7">
           <div class="newslatter">
-            <form>
+            <!-- <form>
               <h5>Sign up for our Newsletter</h5>
               <div class="input-group">
                 <input type="text" class=" form-control" placeholder="Your-email@website.com">
                 <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe</button>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
         <div class="col-sm-5">
