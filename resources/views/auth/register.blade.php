@@ -71,7 +71,9 @@
 
                                   
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">{{ __('Register') }}</button>
+                                <button type="submit" class="btn btn-outline-success btn-block text-uppercase mb-2 rounded-pill shadow-sm">{{ __('Register') }}</button>
+                                <hr>
+                                <a href="{{ url('/auth/google') }}" class="btn btn-outline-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"><img src="https://img.icons8.com/fluent/344/google-logo.png" width="20" height="20"> google</a>
                                 <a href="{{ route('login') }}" class="font-italic text-muted">Login Account</a>
                                   </div>
                             </form>

@@ -73,12 +73,14 @@
                                   @enderror
                                 </div>
                                
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">{{ __('Login') }}</button>
+                                <button type="submit" class="btn btn-outline-success btn-block text-uppercase mb-2 rounded-pill shadow-sm">{{ __('Login') }}</button>
+                                <hr>
+                                <a href="{{ url('/auth/google') }}" class="btn btn-outline-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"><img src="https://img.icons8.com/fluent/344/google-logo.png" width="20" height="20"> google</a>
                                 <div class="text-center d-flex justify-content-between mt-4">
                                   @if (Route::has('password.request'))
-                                    <a class="font-italic text-muted" href="{{ route('password.request') }}">
+                                    <!-- <a class="font-italic text-muted" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
-                                    </a>
+                                    </a> -->
                                 @endif
                                 <br>
                                 <a href="{{ route('register') }}" class="font-italic text-muted">Register a new membership</a>

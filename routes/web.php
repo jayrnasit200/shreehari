@@ -39,7 +39,8 @@ Route::get('/config_cache', function() {
 
 
 Auth::routes();
-
+Route::get('/auth/google', [App\Http\Controllers\Auth\GoogleController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [App\Http\Controllers\Auth\GoogleController::class, 'handleGoogleCallback']);
 // Route::get('login2',  [App\Http\Controllers\Auth\LoginController::class, 'index']);
 
 // Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('Admin');

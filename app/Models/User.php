@@ -23,6 +23,7 @@ protected $guarded = [];
         'password',
         'phone',
         'role',
+        'google_id',
     ];
 
     /**

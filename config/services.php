@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '1036446914541-8hl8ia745rph553u1h5ilnqc0n31m6hh.apps.googleusercontent.com',
+        'client_secret' => '3DnD14vAGKrQ57qsMEqQ_m17',
+        'redirect' => 'https://www.shreehari.net/public/auth/google/callback',
+    ],
 
 ];
