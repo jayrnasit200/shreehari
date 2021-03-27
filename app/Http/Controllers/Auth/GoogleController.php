@@ -7,7 +7,8 @@ use Socialite;
 use Auth;
 use Exception;
 use App\Models\User;
-  
+use App\Http\Controllers\SendMailController;
+
 class GoogleController extends Controller
 {
     /**
@@ -40,6 +41,7 @@ class GoogleController extends Controller
                 return redirect('/');
      
             }else{
+
                  $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
@@ -47,7 +49,12 @@ class GoogleController extends Controller
                     'google_id'=> $user->id,
                     'password' => encrypt('123456')
                 ]);
-    
+                $subject = 'Thank you for your registration!';
+                $message = 'Thank you for your registration visit website and Buy Best Product on Best Price.';
+
+                    $mail_send = new SendMailController;
+                    $mail_send->send_mail($user->email,$subject,$message);
+
                 Auth::login($newUser);
      
                 return redirect('/');
