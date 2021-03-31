@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
 
-class HttpsProtocolMiddleware
+class HttpsProtocol
 {
     /**
      * Handle an incoming request.
@@ -14,12 +14,12 @@ class HttpsProtocolMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if (!$request->secure() && app()->environment('production')) {
+            // return redirect()->secure($request->getRequestUri());
             return redirect()->secure($request->getRequestUri());
         }
-
-        return $next($request);
+            return $next($request); 
     }
 }
