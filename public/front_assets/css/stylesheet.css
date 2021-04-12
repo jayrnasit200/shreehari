@@ -2698,6 +2698,8 @@ div.dioprogress_size_l {
 	min-height: 250px;
 	max-height: 250px;
 	margin: auto;
+	width: auto !important;
+	max-width: 100%;
 }
 #accordion .disabledbutton {
     pointer-events: none;

@@ -266,6 +266,7 @@ ul.main-navigation {
 /* content */
 .product-thumb .image img {
 	max-width: none;
+	/*width: auto !important;*/
 	width: 100%;
 }
 div#banner1, div#banner2 {

@@ -263,7 +263,7 @@
             e.preventDefault();
             var total_amount = total * 100;
             var options = {
-                "key": "{{ env('RAZOR_KEY','rzp_test_InMkyYjiVS3O8y') }}", // Enter the Key ID generated from the Dashboard
+                "key": "{{ env('RAZOR_KEY','rzp_test_7AH92NJoeO8Sb3') }}", // Enter the Key ID generated from the Dashboard
                 "amount": total_amount, // Amount is in currency subunits. Default currency is INR. Hence, 10 refers to 1000 paise
                 "currency": "INR",
                 "name": "{{ sys_config('site_name') }}",

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    	$this->app['request']->server->set('HTTPS', true);
- 		URL::forceScheme('https');
+    	// $this->app['request']->server->set('HTTPS', true);
+ 		// URL::forceScheme('https');
         Schema::defaultStringLength(191);
     }
 }

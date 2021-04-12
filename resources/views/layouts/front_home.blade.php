@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 <title>{{ sys_config('site_name') }}</title>
-<meta name="description" content="Shree Hari e-commerce Site Use Buy Best Products Best Price." />
+<meta name="description" content="{{ sys_config('site_name') }} e-commerce Site Use Buy Best Products Best Price." />
+<meta name="keywords" content="ecommerce,ecommerce website,ecommerce website in india,ecommerce website templates free download,ecommerce template,ecommerce meaning,ecommerce logo,ecommerce website design,ecommerce executive,ecommerce app,ecommerce admin panel,ecommerce app design,ecommerce admin panel template,ecommerce android app,ecommerce accounting software,ecommerce app design template,ecommerce account management services,ecommerce business,ecommerce bootstrap template free,ecommerce business in india,ecommerce business ideas,ecommerce business model,ecommerce business name ideas,ecommerce blog,ecommerce business meaning,ecommerce calculator,ecommerce companies in india,ecommerce category,ecommerce company name ideas,ecommerce course online free,ecommerce calculator excel,ecommerce commission rates,ecommerce companies in ahmedabad,ecommerce development,ecommerce database design,ecommerce disadvantage,ecommerce development companies in india,ecommerce design,ecommerce definition,ecommerce domain,ecommerce delivery,ecommerce executive jobs in surat,e commerce express,ecommerce executive jobs,ecommerce erp,ecommerce email templates,ecommerce examples,ecommerce executive jobs in ahmedabad,ecommerce framework,ecommerce free template bootstrap,ecommerce features,ecommerce franchise,ecommerce flyer,ecommerce full form,ecommerce features list,ecommerce free template,ecommerce growth,ecommerce growth in india,ecommerce github,ecommerce growth rate,e commerce gst,ecommerce guidelines,ecommerce gif,ecommerce gd topic,,ecommerce website,ecommerce website in india,ecommerce website templates free download,ecommerce template,ecommerce meaning,ecommerce logo,ecommerce website design,ecommerce executive,ecommerce app,ecommerce admin panel,ecommerce app design,ecommerce admin panel template,ecommerce android app,ecommerce accounting software,ecommerce app design template,ecommerce account management services,ecommerce business,ecommerce bootstrap template free,ecommerce business in india,ecommerce business ideas,ecommerce business model,ecommerce business name ideas,ecommerce blog,ecommerce business meaning" />
 <link rel="shortcut icon" href="{{ url(sys_config('logo')) }}" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -227,6 +228,7 @@
     }, 1000);
 
     $(document).ready(function() {
+    	
     $(".addtocart-btn").click(function(){
        event.preventDefault();
        var id= this.id;
@@ -242,7 +244,9 @@
         },
         success:function(response){
           if(response == 1) {
-            document.getElementById("get_cart_totel").innerHTML = "{{cart_total()}}";
+          	var total = $('#get_cart_totel').text();
+    		total++;
+            document.getElementById("get_cart_totel").innerHTML = total;
             swal({
               title: "Add to Cart",
               text: "You product added to cart successfully",
